@@ -1,0 +1,8 @@
+<h1>Link View Helper</h1>
+
+
+<%= basic_list @posts.map{|x| x.title} %>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>

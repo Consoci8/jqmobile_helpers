@@ -1,0 +1,6 @@
+= jqmobile_helpers
+Copyright (C) 2011 Consoci8 Sdn Bhd
+
+jqmobile_helpers are view helpers for jquery mobile components e.g list view, buttons, form elements, etc
+
+This project rocks and it uses MIT License.
