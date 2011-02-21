@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ListViewHelpersHelpersTest < ActiveSupport::TestCase
+class ListViewHelperTest < ActiveSupport::TestCase
   include JqmobileHelpers::ListViewsHelper
   
   test "basic list helper" do
