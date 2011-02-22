@@ -52,7 +52,11 @@ module JqmobileHelpers
       content_tag(:ol, list.join.html_safe, self.default_options)
     end
     
-    
+    def nested_list(collection)
+      list = collection.map {|item| content_tag("li", content_tag("ul", content_tag("li", item)))}
+      content_tag :ul, list.join.html_safe, 'data-role' => "listview"
+    end
+      
     private
       
       # Default html5 data attributes for list view in jquery-mobile
@@ -68,6 +72,6 @@ module JqmobileHelpers
           self.default_options = default_options.merge({'data-theme' => html_options['data-theme']})
         end
       end
-      
+
   end
 end

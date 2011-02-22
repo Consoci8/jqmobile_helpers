@@ -13,7 +13,13 @@
 <p>data-theme='c' is jquery-mobile default</p>
 <%= basic_list @posts.map{|x| link_to(x.title, post_path(x))} %>
 
-<br />
+<br /><br />
+
+<h2>Nested List</h2>
+
+<%= nested_list @posts.map{|x| link_to(x.title, post_path(x))} %>
+
+<br /><br />
 
 <h2>Basic linked list inset option false, data-theme = 'a'</h2>
 
