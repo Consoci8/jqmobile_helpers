@@ -2,14 +2,13 @@ module JqmobileHelpers
   # = JqmobileHelpers List View Helpers
   # Provides a set of methods for making list views 
   # for jquery-mobile markup
-  module ListViewsHelper #:nodoc:
-    
+  module ListViewsHelper 
     # Creates a simple unordered list containing linked list items 
     # with a data-role="listview" attribute
     # 
     # ==== Options
-    # +'data-inset'+ => +'true'+ (Default data-inset is set to true)
-    # +'data-theme'+ => +'a'+ (Default data-theme is set to blank)
+    #   # => 'data-inset' => 'true' (Default data-inset is set to true)
+    #   # => 'data-theme' => 'c' (Default data-theme is set to c)
     #      
     # ==== Examples
     #   basic_list(@posts.map{|x| x.title})
