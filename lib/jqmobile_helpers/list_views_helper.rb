@@ -14,6 +14,6 @@ module JqmobileHelpers
       list = collection.map {|item| content_tag("li", item)}
       content_tag :ul, list.join.html_safe, 'data-role' => "listview"
     end
-    
+
   end
 end
