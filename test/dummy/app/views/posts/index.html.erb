@@ -1,8 +1,19 @@
+<% content_for :header do %>
+  
+
+<% end %>
+
 <h1>Link View Helper</h1>
 
 <h2>Basic List</h2>
 
 <%= basic_list @posts.map{|x| x.title} %>
+
+<br/>
+
+<h2>Basic linked list</h2>
+
+<%= basic_list @posts.map{|x| link_to(x.title, post_path(x))} %>
 
 <br />
 
