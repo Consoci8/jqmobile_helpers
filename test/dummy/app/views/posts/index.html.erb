@@ -2,13 +2,15 @@
 
 <h2>Read only list</h2>
 
-<%= basic_list @posts.map{|x| x.title} %>
+<%= basic_list @posts.map{|x| x.title}, {'data-theme'=>'c'} %>
 
-<br /><br />
+<br />
 
 
 <h2>Basic linked list</h2>
 
+<p>data-inset='true' is default</p>
+<p>data-theme='c' is jquery-mobile default</p>
 <%= basic_list @posts.map{|x| link_to(x.title, post_path(x))} %>
 
 <br /><br />
@@ -19,4 +21,9 @@
 
 <br /><br />
 
+<h2>Basic linked list inset option false, data-theme = 'a'</h2>
+
+<%= basic_list(@posts.map{|x| link_to(x.title, post_path(x))}, {'data-inset' => 'false', 'data-theme' => 'a'}) %>
+
+<br /><br />
 <%= link_to 'New Post', new_post_path %>
