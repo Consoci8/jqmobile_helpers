@@ -19,5 +19,10 @@
 
 <%= basic_list(@posts.map{|x| link_to(x.title, post_path(x))}, {'data-inset' => 'false', 'data-theme' => 'a'}) %>
 
+<br />
+
+<h2>Basic numbered list</h2>
+
+<%= numbered_list(@posts.map{|x| link_to(x.title, post_path(x))}) %>
 <br /><br />
 <%= link_to 'New Post', new_post_path %>
