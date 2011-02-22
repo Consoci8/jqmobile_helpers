@@ -22,7 +22,7 @@ class ListViewHelperTest < ActiveSupport::TestCase
   test "nested list helper" do 
     collection = [{:title => "Bird", :link => "/birds/1"}]
     nested_list = nested_list(collection.map{|x| link_to(x[:title], x[:link])})
-    assert_equal "<ul data-role=\"listview\"><li><ul><li><a href=\"/birds/1\">Bird</a></li></ul></li></ul>", nested_list
+    assert_equal "<ul data-inset=\"true\" data-role=\"listview\"><li><ul><li><a href=\"/birds/1\">Bird</a></li></ul></li></ul>", nested_list
   end
   
 end

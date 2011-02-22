@@ -22,9 +22,7 @@ module JqmobileHelpers
     #          <li><a href='/posts/1'>Title 1</a></li><li><a href="/posts/2">test2</a></li></ul> 
     #
     def basic_list(collection, options = {})
-      
       html_attributes_options(options)
-          
       list = collection.map {|item| content_tag("li", item)}
       content_tag(:ul, list.join.html_safe, default_options)
     end
@@ -47,14 +45,14 @@ module JqmobileHelpers
     #
     def numbered_list(collection, options = {})
       html_attributes_options(options)
-      
       list = collection.map {|item| content_tag("li", item)}
       content_tag(:ol, list.join.html_safe, self.default_options)
     end
     
-    def nested_list(collection)
+    def nested_list(collection, options = {})
+      html_attributes_options(options)
       list = collection.map {|item| content_tag("li", content_tag("ul", content_tag("li", item)))}
-      content_tag :ul, list.join.html_safe, 'data-role' => "listview"
+      content_tag :ul, list.join.html_safe, self.default_options
     end
       
     private
