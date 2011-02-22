@@ -11,6 +11,12 @@
 
 <%= basic_list @posts.map{|x| link_to(x.title, post_path(x))} %>
 
-<br />
+<br /><br />
+
+<h2>Nested List</h2>
+
+<%= nested_list @posts.map{|x| link_to(x.title, post_path(x))} %>
+
+<br /><br />
 
 <%= link_to 'New Post', new_post_path %>
