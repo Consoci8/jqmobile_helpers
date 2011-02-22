@@ -12,7 +12,7 @@ module JqmobileHelpers
     #
     def basic_list(collection)
       list = collection.map {|item| content_tag("li", item)}
-      content_tag :ul, list.join.html_safe, 'data-role' => "listview"
+      content_tag :ul, list.join.html_safe, {'data-role' => "listview", 'data-inset' => "true"}
     end
     
   end
