@@ -64,8 +64,21 @@ module JqmobileHelpers
     
     def split_button_list(collection, options = {})
       html_attributes_options(options)
-      list = collection.map {|item| content_tag("li", item)}
-      content_tag(:ul, list.join.html_safe, self.default_options)
+      split_options = {'data-rel' => "dialog", 'data-transition' => "slideup"}
+      list = collection.map {|item| content_tag("li", content_tag(:a, {:href => item}.merge(split_options)))}
+      content_tag(:ul, list.join.html_safe, self.default_options) 
+    end
+    
+    def button_link(name, link, options = {})
+
+      html_options = options.stringify_keys!
+      default_options = {'data-role' => "button"}
+
+      if html_options.has_key?('data-theme')
+        default_options = default_options.merge({'data-theme' => html_options['data-theme']})
+      end
+
+      content_tag(:a, name, {:href => link}.merge(default_options))
     end
     
     def count_bubble(collection, options = {})
