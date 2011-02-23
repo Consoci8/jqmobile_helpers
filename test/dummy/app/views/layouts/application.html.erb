@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>Dummy</title>
-  <%= stylesheet_link_tag "jquery-ui-1.8.9.custom", "jquery.mobile-1.0a3.min" %>
-  <%= javascript_include_tag "jquery-1.5.min","jquery-ui-1.8.9.custom.min","rails", "jquery.mobile-1.0a3.min" %>
+  <%= stylesheet_link_tag "jquery.mobile-1.0a3.min" %>
+  <%= javascript_include_tag "jquery-1.5.min", "jquery.mobile-1.0a3.min" %>
   <%= csrf_meta_tag %>
 </head>
 
 <body>
+	
   <div data-role="page">
 
       <!-- header part -->
@@ -20,6 +21,11 @@
 	<div data-role="content">
       <%= yield %>
 	</div>
+	
+	<div data-role="footer">
+	  <h4>Page Footer</h4>
+	</div><!-- /footer -->
+		
   </div>
 </body>
 </html>
