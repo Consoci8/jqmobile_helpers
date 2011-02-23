@@ -10,10 +10,14 @@
 <body>
 	
   <div data-role="page">
-	<div data-role="header">
-	  <h1>Page Title</h1>
-	</div><!-- /header -->
-	
+
+      <!-- header part -->
+      <div data-role="header" data-position="fixed" data-backbtn="true">
+        <%= yield :header %>
+      </div>
+      
+      <!-- end header part -->
+
 	<div data-role="content">
       <%= yield %>
 	</div>

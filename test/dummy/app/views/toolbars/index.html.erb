@@ -1,0 +1,21 @@
+<% content_for :header do %>
+	<%= header_toolbar_title('Sazlin Engine') %>
+        <%= header_toolbar_link('Toolbar',toolbars_path, {'data-icon'=>"gear", 'data-iconpos' => 'notext', 'data-theme' => 'c'}) %>
+        <%= header_toolbar_link('Homies',root_path, {'data-icon'=>"check", 'data-theme'=>'b'}) %>
+
+<% end %>
+
+<p>
+<ul>
+  <li>div data-role="header" set with data-position="fixed" && data-backbtn="true"</li>
+  <li>
+    <ul>
+      <li>toolbar link on the left side set with data-icon="gear", data-iconpos="notext"</li>
+      <li>toolbar link on the right side set with data-theme="b", data-icon="check"</li>
+      <li></li>
+    </ul>
+  </li>
+</ul>
+</p>
+
+
