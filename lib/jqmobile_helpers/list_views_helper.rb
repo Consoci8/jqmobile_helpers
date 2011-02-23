@@ -49,12 +49,28 @@ module JqmobileHelpers
       content_tag(:ol, list.join.html_safe, self.default_options)
     end
     
+    #By nesting child ul of ol inside list items, you can create nested lists. 
+    #When a list item with a child list is clicked, the framework will generate a new ui-page populated with the title of the parent in the header and the list of child elements. 
+    #These dynamic nested lists are styled with the "b" theme swatch (blue in the default theme) to indicate that you are in a secondary level of navigation. 
+    #Lists can be nested multiple level deep and all pages and linking will be automatically handled by the framework.
+    
     def nested_list(collection, options = {})
       html_attributes_options(options)
       list = collection.map {|item| content_tag("li", content_tag("ul", content_tag("li", item)))}
       content_tag :ul, list.join.html_safe, self.default_options
     end
-      
+    
+    def split_button_list(collection, options = {})
+      html_attributes_options(options)
+      list = collection.map {|item| content_tag("li", item)}
+      content_tag(:ul, list.join.html_safe, self.default_options)
+    end
+    
+    def count_bubble(collection, options = {})
+      list = collection.map {|item| content_tag(:span, item, :class => "ui-li-count")}
+      content_tag :ul, :li, list.join.html_safe, self.default_options
+    end
+    
     private
       
       # Default html5 data attributes for list view in jquery-mobile
@@ -69,6 +85,16 @@ module JqmobileHelpers
         if html_options.has_key?('data-theme')
           self.default_options = default_options.merge({'data-theme' => html_options['data-theme']})
         end
+        
+        if html_options.has_key?('data-rel')
+          self.default_options = default_options.merge({'data-rel' => html_options['data-rel']})
+        end
+        
+        if html_options.has_key?('data-transition')
+          self.default_options = default_options.merge({'data-transition' => html_options['data-transition']})
+        end
+        
+        
       end
 
   end
