@@ -12,10 +12,10 @@
   <div data-role="page">
 
       <!-- header part -->
-      <div data-role="header">
-	<%= header_toolbar('sazlin') %>
-        <%= header_toolbar_home %>
+      <div data-role="header" data-position="fixed" data-backbtn="true">
+        <%= yield :header %>
       </div>
+      
       <!-- end header part -->
 
 	<div data-role="content">
