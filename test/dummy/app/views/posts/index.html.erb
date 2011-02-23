@@ -1,8 +1,15 @@
+
 <h1>Link View Helper</h1>
 
 <h2>Read only list</h2>
 
-<%= basic_list @posts.map{|x| x.title}, {'data-theme'=>'c'} %>
+<%= basic_list @posts.map{|x| x.title}, {'data-theme'=>'b'} %>
+
+<br/>
+
+<h2>Basic linked list</h2>
+
+<%= basic_list @posts.map{|x| link_to(x.title, post_path(x))} %>
 
 <br />
 

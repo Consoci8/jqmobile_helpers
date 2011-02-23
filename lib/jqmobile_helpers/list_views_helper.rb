@@ -24,7 +24,9 @@ module JqmobileHelpers
     def basic_list(collection, options = {})
       html_attributes_options(options)
       list = collection.map {|item| content_tag("li", item)}
+
       content_tag(:ul, list.join.html_safe, default_options)
+
     end
     
     # Creates ordered lists (ol) which is useful when presented items that are in a sequence.
