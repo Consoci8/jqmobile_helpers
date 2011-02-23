@@ -1,0 +1,34 @@
+<h1>Buttons Helper</h1>
+
+<h2>Link Buttons</h2>
+
+<br />
+
+<h4>Button Link</h4>
+<p>data-role = "button" is default</p>
+<%= button_link 'New Post', new_post_path %>
+<p>Set data-theme = "a", data-icon = "plus", data-iconpos = "right"</p>
+<%= button_link 'New Post', new_post_path, {'data-theme' => 'a', 'data-icon' => 'plus', 'data-iconpos' => 'right'} %>
+<br/>
+
+<h4>Delete Button Link</h4>
+<p>data-icon ="delete" and data-role = "button" are default</p>
+<%= delete_button_link 'Delete', buttons_path %>
+<p>Set data-theme = "b", data-iconpos = "right"</p>
+<%= delete_button_link 'Delete', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'right'} %>
+<br/>
+
+<h4>Left Button Link</h4>
+<p>data-icon ="left" and data-role = "button" are default</p>
+<%= left_button_link 'Back', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "right"</p>
+<%= left_button_link 'Back', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'right'} %>
+<br/>
+
+<h4>Right Button Link</h4>
+<p>data-icon ="right" and data-role = "button" are default</p>
+<%= right_button_link 'Proceed', buttons_path %>
+<p>Set data-theme = "d", data-iconpos = "right"</p>
+<%= right_button_link 'Proceed', buttons_path, {'data-theme' => 'd', 'data-iconpos' => 'right'} %>
+<br/>
+
