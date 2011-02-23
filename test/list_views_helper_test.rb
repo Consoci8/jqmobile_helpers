@@ -25,4 +25,13 @@ class ListViewHelperTest < ActiveSupport::TestCase
     assert_equal "<ul data-inset=\"true\" data-role=\"listview\"><li><ul><li><a href=\"/birds/1\">Bird</a></li></ul></li></ul>", nested_list
   end
   
+  test "split-button list helper" do 
+    name = "Split Button List"
+    link = "/posts/1"
+    default_options = {'data-role' => "listview", 'data-split-icon' => "gear", 'data-split-theme' => "d"}
+    split_options = {'data-rel' => "dialog", 'data-transition' => "slideup"}
+    split_button_list = content_tag("li", content_tag(:a, name, {:href => link}.merge(split_options)))
+    assert_equal "<li><a data-rel=\"dialog\" data-transition=\"slideup\" href=\"/posts/1\">Split Button List</a></li>", split_button_list
+  end
+  
 end

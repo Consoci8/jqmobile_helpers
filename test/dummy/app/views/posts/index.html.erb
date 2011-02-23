@@ -41,7 +41,7 @@
 
 <h2>Split Button  List</h2>
 
-<%= split_button_list(@posts.map{|x| link_to(x.title, post_path(x))}) %>
+<%= split_button_list "Split Button List", post_path(@posts) %>
 
 <h2>Count Bubble List</h2>
 

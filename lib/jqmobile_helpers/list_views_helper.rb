@@ -6,6 +6,8 @@ module JqmobileHelpers
     # html5 data attributes options value
     mattr_accessor :default_options 
     
+    
+    # ====================================== BASIC LIST ===========================================================
     # Creates a simple unordered list containing linked list items 
     # with a data-role="listview" attribute
     # 
@@ -29,6 +31,7 @@ module JqmobileHelpers
 
     end
     
+    # ====================================== NUMBERED LIST ===========================================================
     # Creates ordered lists (ol) which is useful when presented items that are in a sequence.
     # When the enhanced markup is applied to the list view, jQuery Mobile will try to first use CSS to add numbers 
     # to the list and, if not supported, will fall back to injecting numbers with JavaScript
@@ -51,33 +54,72 @@ module JqmobileHelpers
       content_tag(:ol, list.join.html_safe, self.default_options)
     end
     
-    #By nesting child ul of ol inside list items, you can create nested lists. 
-    #When a list item with a child list is clicked, the framework will generate a new ui-page populated with the title of the parent in the header and the list of child elements. 
-    #These dynamic nested lists are styled with the "b" theme swatch (blue in the default theme) to indicate that you are in a secondary level of navigation. 
-    #Lists can be nested multiple level deep and all pages and linking will be automatically handled by the framework.
     
+    # ======================================NESTED LIST ===========================================================
+    # By nesting child ul of ol inside list items, you can create nested lists.
+    # When a list item with a child list is clicked, the framework will generate a new ui-page populated 
+    # with the title of the parent in the header and the list of child elements. 
+    # 
+    # 
+    # ==== Options
+    #   # => 'data-inset' => 'true' (Default data-inset is set to true)
+    #   # => 'data-theme' => 'c' (Default data-theme is set to c)
+    #      
+    # ==== Examples
+    #   <%= nested_list @posts.map{|x| link_to(x.title, post_path(x))} %>
+    #   # => <ul data-inset="true" data-role="listview"><li><ul><li><a href="/birds/1">Bird</a></li></ul></li></ul>
+    #
+    #
     def nested_list(collection, options = {})
       html_attributes_options(options)
       list = collection.map {|item| content_tag("li", content_tag("ul", content_tag("li", item)))}
       content_tag :ul, list.join.html_safe, self.default_options
     end
     
-    def split_button_list(collection, options = {})
-      html_attributes_options(options)
+    # ====================================== SPLIT-BUTTON LIST ===========================================================
+    # In cases where there is more than one possible action per list item,
+    # a split button can be used to offer two independently clickable items -- the list item and a small arrow icon in the far right
+    # The framework will add a vertical divider line and sets the title attribute of the link to the text the link for accessibility.
+    # 
+    # 
+    # ==== Options
+    #   # => 'data-inset' => 'true' (Default data-inset is set to true)
+    #   # => 'data-theme' => 'c' (Default data-theme is set to c)
+    #      
+    # ==== Examples
+    #   <%= split_button_list "Split Button List", post_path(@posts) %>
+    #   # => <ul data-role="listview" data-split-icon="gear" data-split-theme="d"><li><a data-rel="dialog" data-transition="slideup" href="/posts/1">Split Button List</a></li></ul>  
+    #
+    #
+    def split_button_list(name, link, options = {})
+      html_options = options.stringify_keys!
+      default_options = {'data-role' => "listview", 'data-split-icon' => "gear", 'data-split-theme' => "d"}
       split_options = {'data-rel' => "dialog", 'data-transition' => "slideup"}
-      list = collection.map {|item| content_tag("li", content_tag(:a, {:href => item}.merge(split_options)))}
-      content_tag(:ul, list.join.html_safe, self.default_options) 
+      
+      list = content_tag("li", content_tag(:a, name, {:href => link}.merge(split_options)))
+      content_tag(:ul, list, default_options)
     end
     
-    def button_link(name, link, options = {})
-
+    
+    # ====================================== BACK-SPLIT-BUTTON LIST ===========================================================
+    # In cases where there is more than one possible action per list item,
+    # a split button can be used to offer two independently clickable items -- the list item and a small arrow icon in the far right
+    # The framework will add a vertical divider line and sets the title attribute of the link to the text the link for accessibility.
+    # It is similar for the Split-Button List.
+    # 
+    # 
+    # ==== Options
+    #   # => 'data-inset' => 'true' (Default data-inset is set to true)
+    #   # => 'data-theme' => 'c' (Default data-theme is set to c)
+    #      
+    # ==== Examples
+    #   <%= back_split_button "Back", posts_path %>
+    #   # => <div data-role="content"><a href="index.html" data-role="button" data-rel="back">Back</a></div>  
+    #
+    #
+    def back_split_button(name, link, options ={} )
       html_options = options.stringify_keys!
-      default_options = {'data-role' => "button"}
-
-      if html_options.has_key?('data-theme')
-        default_options = default_options.merge({'data-theme' => html_options['data-theme']})
-      end
-
+      default_options = {'data-role' => "button", 'data-rel' => "back"}  
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
     
