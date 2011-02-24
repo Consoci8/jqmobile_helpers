@@ -97,18 +97,17 @@ module JqmobileHelpers
     #    
     def split_button_list(name, link, options = {})
       html_attributes_options(options)
+      default_split_options = {'data-split-icon' => "gear" }
       split_options = {'data-rel' => "dialog", 'data-transition' => "slideup"}
       list = content_tag("li", content_tag(:a, name, {:href => link}.merge(split_options)))
       #list = content_tag("li", content_tag(:a, data, {:href => link}.merge(split_options)))
-      content_tag(:ul, list, self.default_options)
+      content_tag(:ul, list, self.default_options.merge(default_split_options))
     end
-    
-    
-    # ====================================== BACK-SPLIT-BUTTON LIST ===========================================================
+
+    # ====================================== SPLIT-BUTTON LIST ===========================================================
     # In cases where there is more than one possible action per list item,
     # a split button can be used to offer two independently clickable items -- the list item and a small arrow icon in the far right
     # The framework will add a vertical divider line and sets the title attribute of the link to the text the link for accessibility.
-    # It is similar for the Split-Button List.
     # 
     # 
     # ==== Options
@@ -116,21 +115,19 @@ module JqmobileHelpers
     #   # => 'data-theme' => 'c' (Default data-theme is set to c)
     #      
     # ==== Examples
-    #   <%= back_split_button "Back", posts_path %>
-    #   # => <div data-role="content"><a href="index.html" data-role="button" data-rel="back">Back</a></div>  
+    #   <%= split_button_list "Split Button List", post_path(@posts) %>
+    #   # => <ul data-role="listview" data-split-icon="gear" data-split-theme="d"><li><a data-rel="dialog" data-transition="slideup" href="/posts/1">Split Button List</a></li></ul>  
     #
+    # ======for collections of data that have more than one.
+    #  <% @posts.each do |post|
+    #  <%= split_button_list(post.name, post_path(post)) %>
+    #  <% end %>
     #
-    def back_split_button(name, link, options ={} )
-      html_options = options.stringify_keys!
-      default_options = {'data-role' => "button", 'data-rel' => "back"}  
-      content_tag(:a, name, {:href => link}.merge(default_options))
-    end
-
-    def count_bubble(collection, name, link, options = {})
+    def count_bubble(collection, options = {})
       html_attributes_options(options)
-      total_size = collection.map{|item| item}.size
-      list = content_tag("li", content_tag(:a, name, {:href => link}), :span, total_size, :class => "ui-li-count")
-      content_tag(:ul, list.join.html_safe, self.default_options)
+      total_size = collection.map{|item| content_tag("li", item.map{|size| content_tag("span", size, :class => "ui-li-count")}.size)}
+      #list = collection.map{|item| content_tag("li", c)}
+      content_tag(:ul, total_size.join.html_safe, self.default_options)
     end
     
     private

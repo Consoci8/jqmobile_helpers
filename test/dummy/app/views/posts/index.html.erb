@@ -49,7 +49,7 @@
 <% end %>
 
 <h2>Count Bubble List</h2>
-
+<%= count_bubble(@posts.map{|x| link_to(x.title, post_path(x))}) %>
 
 
 
