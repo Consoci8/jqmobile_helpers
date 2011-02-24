@@ -1,3 +1,6 @@
+<% content_for :header do %>
+<h1>Buttons Helper</h1>
+<% end %>
 <h1>Buttons Helper</h1>
 
 <h2>Link Buttons</h2>
@@ -127,7 +130,7 @@
 <p>data-icon ="home" and data-role = "button" are default</p>
 <%= home_button_link 'home', buttons_path %>
 <p>Set data-theme = "b", data-iconpos = "bottom"</p>
-<%= home_button_link 'home', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'bottom'} %>
+<%= home_button_link 'home', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'bottom', 'data-inline' => 'true'} %>
 <br/>
 
 <h4>Search Button Link</h4>
@@ -135,5 +138,17 @@
 <%= search_button_link 'search', buttons_path %>
 <p>Set data-theme = "b", data-iconpos = "notext"</p>
 <%= search_button_link 'search', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'notext'} %>
+<br/>
+
+<h4>Grouped Button</h4>
+<p>data-role ="controlgroup" is default</p>
+<%= group_button("
+    #{home_button_link('home', buttons_path, 'data-iconpos' => 'right')}
+    #{refresh_button_link 'refresh', buttons_path}
+    #{info_button_link 'info', buttons_path}") %>
+<p>Set data-type = "horizontal"</p>
+<%= group_button("
+    #{home_button_link('home', buttons_path, 'data-iconpos' => 'right')}
+    #{refresh_button_link 'refresh', buttons_path} #{info_button_link 'info', buttons_path}", {'data-type' => 'horizontal'}) %>
 <br/>
 

@@ -29,6 +29,10 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
+      end
+
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
 
@@ -52,6 +56,10 @@ module JqmobileHelpers
 
       if html_options.has_key?('data-iconpos')
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
+      end
+
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
       end
 
       content_tag(:a, name, {:href => link}.merge(default_options))
@@ -79,6 +87,10 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
+      end
+
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
 
@@ -102,6 +114,10 @@ module JqmobileHelpers
 
       if html_options.has_key?('data-iconpos')
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
+      end
+
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
       end
 
       content_tag(:a, name, {:href => link}.merge(default_options))
@@ -129,6 +145,10 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
+      end
+
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
 
@@ -152,6 +172,10 @@ module JqmobileHelpers
 
       if html_options.has_key?('data-iconpos')
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
+      end
+
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
       end
 
       content_tag(:a, name, {:href => link}.merge(default_options))
@@ -179,6 +203,10 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
+      end
+
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
 
@@ -202,6 +230,10 @@ module JqmobileHelpers
 
       if html_options.has_key?('data-iconpos')
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
+      end
+
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
       end
 
       content_tag(:a, name, {:href => link}.merge(default_options))
@@ -229,6 +261,10 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
+      end
+
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
 
@@ -252,6 +288,10 @@ module JqmobileHelpers
 
       if html_options.has_key?('data-iconpos')
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
+      end
+
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
       end
 
       content_tag(:a, name, {:href => link}.merge(default_options))
@@ -279,6 +319,10 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
+      end
+
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
 
@@ -302,6 +346,10 @@ module JqmobileHelpers
 
       if html_options.has_key?('data-iconpos')
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
+      end
+
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
       end
 
       content_tag(:a, name, {:href => link}.merge(default_options))
@@ -329,6 +377,10 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
+      end
+
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
 
@@ -352,6 +404,10 @@ module JqmobileHelpers
 
       if html_options.has_key?('data-iconpos')
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
+      end
+
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
       end
 
       content_tag(:a, name, {:href => link}.merge(default_options))
@@ -379,6 +435,10 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
+      end
+
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
 
@@ -402,6 +462,10 @@ module JqmobileHelpers
 
       if html_options.has_key?('data-iconpos')
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
+      end
+
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
       end
 
       content_tag(:a, name, {:href => link}.merge(default_options))
@@ -429,6 +493,10 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
+      end
+
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
 
@@ -452,6 +520,10 @@ module JqmobileHelpers
 
       if html_options.has_key?('data-iconpos')
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
+      end
+
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
       end
 
       content_tag(:a, name, {:href => link}.merge(default_options))
@@ -479,7 +551,43 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
+      if html_options.has_key?('data-inline')
+        default_options = default_options.merge({'data-inline' => html_options['data-inline']})
+      end
+
       content_tag(:a, name, {:href => link}.merge(default_options))
+    end
+
+    # Grouped Button
+    #
+    # ==== Examples
+    #   group_button("
+    #       #{home_button_link('home', buttons_path, 'data-iconpos' => 'right')}
+    #       #{refresh_button_link 'refresh', buttons_path}
+    #        ")
+    #   # => <div data-role="controlgroup">
+    #          <a data-icon="home" data-iconpos="right" data-role="button" href="/buttons">home</a>
+    #          <a data-icon="refresh" data-role="button" href="/buttons">refresh</a>
+    #        </div>
+    #
+    #   group_button("
+    #       #{home_button_link('home', buttons_path, 'data-iconpos' => 'right')}
+    #       #{refresh_button_link 'refresh', buttons_path}, {'data-type' => 'horizontal'}
+    #        ")
+    #   # => <div data-role="controlgroup" data-type="horizontal" >
+    #          <a data-icon="home" data-iconpos="right" data-role="button" href="/buttons">home</a>
+    #          <a data-icon="refresh" data-role="button" href="/buttons">refresh</a>
+    #        </div>
+    def group_button(content, options = {})
+
+      html_options = options.stringify_keys!
+      default_options = {'data-role'=> "controlgroup"}
+
+      if html_options.has_key?('data-type')
+        default_options = default_options.merge({'data-type' => html_options['data-type']})
+      end
+
+      content_tag(:div, content, default_options, false)
     end
 
   end

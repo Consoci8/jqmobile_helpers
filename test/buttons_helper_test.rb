@@ -97,5 +97,11 @@ class ButtonsHelperTest < ActiveSupport::TestCase
     jq_search_button_link = search_button_link("search", "http://google.com",{'data-theme' => 'c', 'data-iconpos' => 'right'})
     assert_equal "<a data-icon=\"search\" data-iconpos=\"right\" data-role=\"button\" data-theme=\"c\" href=\"http://google.com\">search</a>", jq_search_button_link
   end
+
+  test "group button helper" do
+    jq_group_button = group_button("<a data-icon=\"home\" data-iconpos=\"right\" data-role=\"button\" href=\"/buttons\">home</a>",{'data-type' => 'horizontal'})
+    assert_equal "<div data-role=\"controlgroup\" data-type=\"horizontal\"><a data-icon=\"home\" data-iconpos=\"right\" data-role=\"button\" href=\"/buttons\">home</a></div>", jq_group_button
+  end
+
 end
 
