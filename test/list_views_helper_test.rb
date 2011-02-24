@@ -2,8 +2,7 @@ require 'test_helper'
 
 class ListViewHelperTest < ActiveSupport::TestCase
   include JqmobileHelpers::ListViewsHelper
-  include ActionView::Helpers::AssetTagHelper
-  
+    
   test "basic list helper" do
     jq_basic_list = basic_list(["apple", "orange"])
     assert_equal "<ul data-inset=\"true\" data-role=\"listview\"><li>apple</li><li>orange</li></ul>", jq_basic_list
