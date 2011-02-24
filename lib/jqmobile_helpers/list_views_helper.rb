@@ -26,9 +26,7 @@ module JqmobileHelpers
     def basic_list(collection, options = {})
       html_attributes_options(options)
       list = collection.map {|item| content_tag("li", item)}
-
       content_tag(:ul, list.join.html_safe, default_options)
-
     end
     
     # ====================================== NUMBERED LIST ===========================================================
@@ -131,6 +129,37 @@ module JqmobileHelpers
       total_size = collection.map{|item| item}.size
       list = content_tag("li", content_tag(:a, name, {:href => link}), :span, total_size, :class => "ui-li-count")
       content_tag(:ul, list.join.html_safe, self.default_options)
+    end
+    
+    # To add thumbnails to the left of a list item, the first element in your collection must have a image_tag.
+    # The framework will scale the image to 80 pixels square. 
+    #
+    # Items in your collection must also be constructed inside an array with 3 elements inside 
+    #  
+    # ==== Examples
+    #      <%= thumbnail_list(@posts.collect do |x| 
+    #	       [image_tag('/images/sample-pic.jpg'), link_to(x.title, post_path(x)), x.title]
+    #	     end) %>
+    #      # => <ul data-inset="false" data-role="listview">
+    #             <li>
+    #               <img alt="Album-bb" src="/images/album-bb.jpg" />
+    #               <h3><a href="/posts/1">Title 1</a></h3><p>Title 1</p>
+    #             </li>
+    #           </ul> 
+    #      
+    def thumbnail_list(collection, options={})
+      html_attributes_options(options)
+      list = collection.map do |item| 
+        if item.is_a?(Array)
+          if item[1].blank?
+            item[1] = content_tag(:a, "No item description", :href => "")
+          end
+          content_tag("li", item[0] + "<h3>#{item[1]}</h3><p>#{item[2]}</p>".html_safe)
+        else
+          content_tag("li", item)
+        end
+      end
+      content_tag(:ul, list.join.html_safe, default_options.update('data-inset' => 'false'))
     end
     
     private

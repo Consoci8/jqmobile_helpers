@@ -54,4 +54,15 @@
 
 
 <br /><br />
+
+<h2>Thumbnails List</h2>
+
+<%= thumbnail_list(@posts.collect do |x| 
+	  [image_tag('https://github.com/jquery/jquery-mobile/raw/master/docs/lists/images/album-bb.jpg'), 
+	  link_to(x.title, post_path(x)), 
+	  x.title]
+	end) %>
+
+		
+<br /><br />
 <%= link_to 'New Post', new_post_path %>
