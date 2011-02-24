@@ -36,12 +36,13 @@ class ListViewHelperTest < ActiveSupport::TestCase
   
   test "thumbnail list helper" do
     collection = [{:name => "Cs8", :link => "http://google.com/serach?q=Cs8"}]
-    thumbnail_list(collection.collect do |x|
-      ['<img alt="Album-bb" src="/images/album-bb.jpg" />',
+    actual = thumbnail_list(collection.collect do |x|
+      ['<img alt="Album-bb" src="/images/album-bb.jpg" />'.html_safe,
        link_to(x[:name], x[:link]),
        x[:name]]
     end)
     expected = "<ul data-inset=\"false\" data-role=\"listview\"><li><img alt=\"Album-bb\" src=\"/images/album-bb.jpg\" /><h3><a href=\"http://google.com/serach?q=Cs8\">Cs8</a></h3><p>Cs8</p></li></ul>"
+    assert_equal expected, actual
   end
   
   test "will contruct basic list if thumbnail list collection items is not an array" do
