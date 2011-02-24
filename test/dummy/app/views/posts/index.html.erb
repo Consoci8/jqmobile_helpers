@@ -41,9 +41,12 @@
 
 <h2>Split Button  List</h2>
 
-<%= split_button_list "Split Button List", post_path(@posts) %>
+<% @posts.each do |post| %>
+<%= split_button_list(post.name, post_path(post))%>
+<% end %>
 
 <h2>Count Bubble List</h2>
+
 
 
 

@@ -90,14 +90,17 @@ module JqmobileHelpers
     #   <%= split_button_list "Split Button List", post_path(@posts) %>
     #   # => <ul data-role="listview" data-split-icon="gear" data-split-theme="d"><li><a data-rel="dialog" data-transition="slideup" href="/posts/1">Split Button List</a></li></ul>  
     #
-    #
+    # ======for collections of data that have more than one.
+    #  <% @posts.each do |post|
+    #  <%= split_button_list(post.name, post_path(post)) %>
+    #  <% end %>
+    #    
     def split_button_list(name, link, options = {})
-      html_options = options.stringify_keys!
-      default_options = {'data-role' => "listview", 'data-split-icon' => "gear", 'data-split-theme' => "d"}
+      html_attributes_options(options)
       split_options = {'data-rel' => "dialog", 'data-transition' => "slideup"}
-      
       list = content_tag("li", content_tag(:a, name, {:href => link}.merge(split_options)))
-      content_tag(:ul, list, default_options)
+      #list = content_tag("li", content_tag(:a, data, {:href => link}.merge(split_options)))
+      content_tag(:ul, list, self.default_options)
     end
     
     
@@ -122,10 +125,12 @@ module JqmobileHelpers
       default_options = {'data-role' => "button", 'data-rel' => "back"}  
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
-    
-    def count_bubble(collection, options = {})
-      list = collection.map {|item| content_tag(:span, item, :class => "ui-li-count")}
-      content_tag :ul, :li, list.join.html_safe, self.default_options
+
+    def count_bubble(collection, name, link, options = {})
+      html_attributes_options(options)
+      total_size = collection.map{|item| item}.size
+      list = content_tag("li", content_tag(:a, name, {:href => link}), :span, total_size, :class => "ui-li-count")
+      content_tag(:ul, list.join.html_safe, self.default_options)
     end
     
     private
