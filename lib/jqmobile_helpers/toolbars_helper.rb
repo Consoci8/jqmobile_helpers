@@ -67,22 +67,47 @@ module JqmobileHelpers
     #			<li><a href="b.html">Two</a></li>
     #		</ul>
     #	</div><!-- /navbar -->
+    # Usage => <%= navbar_bar([navbar_link('saya',root_path,{'data-icon' => 'gear'}),navbar_link('saya',root_path,{'data-icon' => 'gear'}),navbar_link('dia',toolbars_path,{'data-icon' => 'home'}), navbar_link('kami',toolbars_path,{'data-icon' => 'plus'})]) %>
 
-    def navbar_bar(collection, options ={})
+
+    def navbar_bar(collection)
+      listing = collection.map {|item| content_tag("li",item)}
+      #list = collection.map {|key,value| content_tag("li",content_tag("a",key, {'href' => "#{value}"}.merge(default_options)))}
+      content_tag("div",content_tag(:ul, listing.join.html_safe), {'data-role' => 'navbar'})
+    end
+
+    # link inside the navbar
+    #   *** Options ***
+    #    => data-icon (to add icon to navbar items)
+    #    => data-iconpos="top" (to stack icon above the navbar items label)
+    #    => data-theme (set theming for navbar)
+    # Example
+    # <a href="a.html" class="ui-btn-active" 'data-icon'="gear">One</a>
+
+
+    def navbar_link(name,link, options ={})
       html_options = options.stringify_keys!
       default_options = {}
 
-       if html_options.has_key?('data-icon')
+      if html_options.has_key?('data-icon')
         default_options = default_options.merge({'data-icon' => html_options['data-icon']})
+      end
+
+      if html_options.has_key?('data-iconpos')
+        default_options = default_options.merge({'data-iconpos' => html_options['data-iconpos']})
       end
 
       if html_options.has_key?('data-theme')
         default_options = default_options.merge({'data-theme' => html_options['data-theme']})
       end
 
-      list = collection.map {|key,value| content_tag("li",content_tag("a",key, {'href' => "#{value}"}.merge(default_options)))}
-      content_tag("div",content_tag(:ul, list.join.html_safe), {'data-role' => 'navbar'})
+      if html_options.has_key?('class')
+        default_options = default_options.merge({'class' => html_options['class']})
+      end
+
+      content_tag('a',name, {'href' => "#{link}"}.merge(default_options))
     end
+
 
   end
 end

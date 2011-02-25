@@ -13,13 +13,17 @@
 
       <!-- header part -->
       <div data-role="header" data-position="fixed" data-backbtn="true">
-        <%= yield :header %>
+
+	<%= header_toolbar_title('Sazlin Engine') %>
+        <%= header_toolbar_link('Toolbar',toolbars_path, {'data-icon'=>"gear", 'data-iconpos' => 'notext', 'data-theme' => 'c'}) %>
+        <%= header_toolbar_link('Homies',root_path, {'data-icon'=>"check", 'data-theme'=>'b'}) %>
+
+
 
         <%#= navbar_bar %>
 
         <%#*<div data-role="navbar">%>
-          <%= navbar_bar({'name1'=> root_path,'name2'=> toolbars_path, 'name3'=> toolbars_path}, {'data-icon' => 'gear', 'data-theme' => 'b'}) %>
-          
+          <%= navbar_bar([navbar_link('saya',root_path,{'data-icon' => 'gear','data-theme' => 'c', 'class' => 'ui-btn-active'}),navbar_link('saya',root_path,{'data-icon' => 'gear'}),navbar_link('dia',toolbars_path,{'data-icon' => 'home'}), navbar_link('kami',toolbars_path,{'data-icon' => 'plus'})]) %>
 	<%#*</div><!-- /navbar -->%>
         
       </div>
