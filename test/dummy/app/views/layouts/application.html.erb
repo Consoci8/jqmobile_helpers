@@ -14,6 +14,14 @@
       <!-- header part -->
       <div data-role="header" data-position="fixed" data-backbtn="true">
         <%= yield :header %>
+
+        <%#= navbar_bar %>
+
+        <%#*<div data-role="navbar">%>
+          <%= navbar_bar({'name1'=> root_path,'name2'=> toolbars_path, 'name3'=> toolbars_path}, {'data-icon' => 'gear', 'data-theme' => 'b'}) %>
+          
+	<%#*</div><!-- /navbar -->%>
+        
       </div>
       
       <!-- end header part -->
@@ -23,6 +31,7 @@
 	</div>
 	
 	<div data-role="footer">
+          
 	  <h4>Page Footer</h4>
 	</div><!-- /footer -->
 		

@@ -48,5 +48,41 @@ module JqmobileHelpers
       content_tag(:a, "#{link_name}",default_options)
     end
 
+    # navigation bar
+    #
+    #  A navbar is coded as an unordered list of links wrapped in a container element that has the data-role="navbar" attribute
+    #  To set one of links to the active (selected) state, add class="ui-btn-active" to the anchor
+    #  The navbar maxes out with 5 items, each 1/5 the width of the browser window
+    #  Navbar can be in the header/footer.just add the navbar container inside header/footer container
+    #
+    #   *** Options ***
+    #    => data-icon (to add icon to navbar items)
+    #    => data-iconpos="top" (to stack icon above the navbar items label)
+    #    => data-theme (set theming for navbar)
+    #
+    # Example :
+    #  <div data-role="navbar">
+    #		<ul>
+    #			<li><a href="a.html" class="ui-btn-active">One</a></li>
+    #			<li><a href="b.html">Two</a></li>
+    #		</ul>
+    #	</div><!-- /navbar -->
+
+    def navbar_bar(collection, options ={})
+      html_options = options.stringify_keys!
+      default_options = {}
+
+       if html_options.has_key?('data-icon')
+        default_options = default_options.merge({'data-icon' => html_options['data-icon']})
+      end
+
+      if html_options.has_key?('data-theme')
+        default_options = default_options.merge({'data-theme' => html_options['data-theme']})
+      end
+
+      list = collection.map {|key,value| content_tag("li",content_tag("a",key, {'href' => "#{value}"}.merge(default_options)))}
+      content_tag("div",content_tag(:ul, list.join.html_safe), {'data-role' => 'navbar'})
+    end
+
   end
 end
