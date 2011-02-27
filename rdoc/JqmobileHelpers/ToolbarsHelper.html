@@ -58,6 +58,21 @@
 
 			<!-- Method Quickref -->
 			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-header_toolbar_link">#header_toolbar_link</a></li>
+					
+					<li><a href="#method-i-header_toolbar_title">#header_toolbar_title</a></li>
+					
+					<li><a href="#method-i-navbar_bar">#navbar_bar</a></li>
+					
+					<li><a href="#method-i-navbar_link">#navbar_link</a></li>
+					
+				</ul>
+			</div>
+			
 
 			<!-- Included Modules -->
 			
@@ -99,6 +114,8 @@
 				
 					<li><a href="../JqmobileHelpers/Railtie.html">JqmobileHelpers::Railtie</a></li>
 				
+					<li><a href="../JqmobileHelpers/ToolbarsHelper.html">JqmobileHelpers::ToolbarsHelper</a></li>
+				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
 			</div>
@@ -127,6 +144,251 @@ markup
 
 		<!-- Methods -->
 		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="header-toolbar-link-method" class="method-detail ">
+				<a name="method-i-header_toolbar_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">header_toolbar_link</span><span
+						class="method-args">(link_name,path,options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Header Bar Link
+</p>
+<p>
+&#8212;Options &#8212;
+</p>
+<pre>
+ =&gt; '- data-direction = &quot;reverse&quot; ## reverse transition without actually going back in history
+ =&gt; - data-icon [delete,check,home,gear]
+ =&gt; - data-iconpos [text,notext] ## if use notext, link only show icon
+ =&gt; - class
+ =&gt; - data-theme ## default 'a'
+</pre>
+<h3>Examples</h3>
+<pre>
+ =&gt; &lt;a href=&quot;../../&quot; data-icon=&quot;home&quot; data-iconpos=&quot;notext&quot; data-direction=&quot;reverse&quot; class=&quot;ui-btn-right jqm-home&quot;&gt;Home&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="header-toolbar-link-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/jqmobile_helpers/toolbars_helper.rb, line 33</span>
+33:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">header_toolbar_link</span>(<span class="ruby-identifier">link_name</span>,<span class="ruby-identifier">path</span>,<span class="ruby-identifier">options</span> = {})
+34:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+35:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'href'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{path}&quot;</span>, <span class="ruby-value str">'data-direction'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;reverse&quot;</span>}
+36: 
+37:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+38:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+39:       <span class="ruby-keyword kw">end</span>
+40: 
+41:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-icon'</span>)
+42:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-icon'</span>]})
+43:       <span class="ruby-keyword kw">end</span>
+44: 
+45:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+46:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+47:       <span class="ruby-keyword kw">end</span>
+48: 
+49:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-node">&quot;#{link_name}&quot;</span>,<span class="ruby-identifier">default_options</span>)
+50:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="header-toolbar-title-method" class="method-detail ">
+				<a name="method-i-header_toolbar_title"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">header_toolbar_title</span><span
+						class="method-args">(title)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Header Bar Title
+</p>
+<h3>Examples</h3>
+<pre>
+ =&gt; &lt;%= header_toolbar_title('Put Title Here') %&gt;
+ =&gt; &lt;h1&gt;Page Title&lt;/h1&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="header-toolbar-title-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/jqmobile_helpers/toolbars_helper.rb, line 16</span>
+16:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">header_toolbar_title</span>(<span class="ruby-identifier">title</span>)
+17:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:h1</span>, <span class="ruby-identifier">title</span>)
+18:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="navbar-bar-method" class="method-detail ">
+				<a name="method-i-navbar_bar"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">navbar_bar</span><span
+						class="method-args">(collection)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+navigation bar container
+</p>
+<pre>
+ A navbar is coded as an unordered list of links wrapped in a container element that has the data-role=&quot;navbar&quot; attribute
+ To set one of links to the active (selected) state, add class=&quot;ui-btn-active&quot; to the anchor
+ The navbar maxes out with 5 items, each 1/5 the width of the browser window
+ Navbar can be in the header/footer.just add the navbar container inside header/footer container
+
+  *** Options ***
+   =&gt; data-role = 'navbar'  (to specify the contanier as navbar)
+</pre>
+<p>
+Example :
+</p>
+<pre>
+ &lt;div data-role=&quot;navbar&quot;&gt;
+          &lt;ul&gt;
+                  &lt;li&gt;&lt;a href=&quot;a.html&quot; class=&quot;ui-btn-active&quot;&gt;One&lt;/a&gt;&lt;/li&gt;
+                  &lt;li&gt;&lt;a href=&quot;b.html&quot;&gt;Two&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+  &lt;/div&gt;&lt;!-- /navbar --&gt;
+</pre>
+<p>
+Usage :
+</p>
+<pre>
+ navbar_link(collection)  ** this method is to create the link inside the navbar container
+ &lt;%= navbar_bar([navbar_link('saya',root_path,{'data-icon' =&gt; 'gear'}),navbar_link('saya',root_path,{'data-icon' =&gt; 'gear'}),navbar_link('dia',toolbars_path,{'data-icon' =&gt; 'home'}), navbar_link('kami',toolbars_path,{'data-icon' =&gt; 'plus'})]) %&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="navbar-bar-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/jqmobile_helpers/toolbars_helper.rb, line 74</span>
+74:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">navbar_bar</span>(<span class="ruby-identifier">collection</span>)
+75:       <span class="ruby-identifier">listing</span> = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">&quot;li&quot;</span>,<span class="ruby-identifier">item</span>)}
+76:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">&quot;div&quot;</span>,<span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:ul</span>, <span class="ruby-identifier">listing</span>.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">html_safe</span>), {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'navbar'</span>})
+77:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="navbar-link-method" class="method-detail ">
+				<a name="method-i-navbar_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">navbar_link</span><span
+						class="method-args">(name,link, options ={})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+link inside the navbar
+</p>
+<pre>
+  *** Options ***
+   =&gt; data-icon (to add icon to navbar items)
+   =&gt; data-iconpos=&quot;top&quot; (to stack icon above the navbar items label)
+   =&gt; data-theme (set theming for navbar)
+</pre>
+<p>
+Example
+</p>
+<pre>
+ # =&gt; &lt;a href=&quot;a.html&quot; class=&quot;ui-btn-active&quot; 'data-icon'=&quot;gear&quot;&gt;One&lt;/a&gt;
+</pre>
+<p>
+Usage :
+</p>
+<pre>
+ =&gt; navbar_link('saya',root_path,{'data-icon' =&gt; 'gear'})</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="navbar-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/toolbars_helper.rb, line 90</span>
+ 90:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">navbar_link</span>(<span class="ruby-identifier">name</span>,<span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> ={})
+ 91:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+ 92:       <span class="ruby-identifier">default_options</span> = {}
+ 93: 
+ 94:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-icon'</span>)
+ 95:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-icon'</span>]})
+ 96:       <span class="ruby-keyword kw">end</span>
+ 97: 
+ 98:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+ 99:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+100:       <span class="ruby-keyword kw">end</span>
+101: 
+102:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+103:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+104:       <span class="ruby-keyword kw">end</span>
+105: 
+106:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'class'</span>)
+107:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'class'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'class'</span>]})
+108:       <span class="ruby-keyword kw">end</span>
+109: 
+110:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'a'</span>,<span class="ruby-identifier">name</span>, {<span class="ruby-value str">'href'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{link}&quot;</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+111:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
 
 	</div>
 
