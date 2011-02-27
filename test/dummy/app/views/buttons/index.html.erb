@@ -1,0 +1,155 @@
+<% content_for :header do %>
+<h1>Buttons Helper</h1>
+<% end %>
+<h1>Buttons Helper</h1>
+
+<h2>Link Buttons</h2>
+
+<br />
+
+<h4>Button Link</h4>
+<p>data-role = "button" is default</p>
+<%= button_link 'New Post', new_post_path %>
+<p>Set data-theme = "a", data-icon = "plus", data-iconpos = "right"</p>
+<%= button_link 'New Post', new_post_path, {'data-theme' => 'a', 'data-icon' => 'plus', 'data-iconpos' => 'right'} %>
+<br/>
+
+<h4>Delete Button Link</h4>
+<p>data-icon ="delete" and data-role = "button" are default</p>
+<%= delete_button_link 'Delete', buttons_path %>
+<p>Set data-theme = "b", data-iconpos = "right"</p>
+<%= delete_button_link 'Delete', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'right'} %>
+<br/>
+
+<h4>Left Button Link</h4>
+<p>data-icon ="arrow-l" and data-role = "button" are default</p>
+<%= left_button_link 'Back', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "right"</p>
+<%= left_button_link 'Back', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'right'} %>
+<br/>
+
+<h4>Right Button Link</h4>
+<p>data-icon ="arrow-r" and data-role = "button" are default</p>
+<%= right_button_link 'Proceed', buttons_path %>
+<p>Set data-theme = "d", data-iconpos = "right"</p>
+<%= right_button_link 'Proceed', buttons_path, {'data-theme' => 'd', 'data-iconpos' => 'right'} %>
+<br/>
+
+<h4>Up Button Link</h4>
+<p>data-icon ="arrow-u" and data-role = "button" are default</p>
+<%= up_button_link 'UP', buttons_path %>
+<p>Set data-theme = "b", data-iconpos = "top"</p>
+<%= up_button_link 'UP', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'top'} %>
+<br/>
+
+<h4>Down Button Link</h4>
+<p>data-icon ="arrow-d" and data-role = "button" are default</p>
+<%= down_button_link 'down', buttons_path %>
+<p>Set data-theme = "b", data-iconpos = "bottom"</p>
+<%= down_button_link 'down', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'bottom'} %>
+<br/>
+
+<h4>Plus Button Link</h4>
+<p>data-icon ="plus" and data-role = "button" are default</p>
+<%= plus_button_link 'plus', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "bottom"</p>
+<%= plus_button_link 'plus', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'bottom'} %>
+<br/>
+
+<h4>Minus Button Link</h4>
+<p>data-icon ="minus" and data-role = "button" are default</p>
+<%= minus_button_link 'minus', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "top"</p>
+<%= minus_button_link 'minus', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'top'} %>
+<br/>
+
+<h4>check Button Link</h4>
+<p>data-icon ="check" and data-role = "button" are default</p>
+<%= check_button_link 'check', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "arrow-r"</p>
+<%= check_button_link 'check', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'right'} %>
+<br/>
+
+<h4>Gear Button Link</h4>
+<p>data-icon ="gear" and data-role = "button" are default</p>
+<%= gear_button_link 'gear', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "notext"</p>
+<%= gear_button_link 'gear', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'notext'} %>
+<br/>
+
+<h4>Refresh Button Link</h4>
+<p>data-icon ="refresh" and data-role = "button" are default</p>
+<%= refresh_button_link 'refresh', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "bottom"</p>
+<%= refresh_button_link 'refresh', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'bottom'} %>
+<br/>
+
+<h4>Forward Button Link</h4>
+<p>data-icon ="forward" and data-role = "button" are default</p>
+<%= forward_button_link 'forward', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "notext"</p>
+<%= forward_button_link 'forward', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'notext'} %>
+<br/>
+
+<h4>Back Button Link</h4>
+<p>data-icon ="back" and data-role = "button" are default</p>
+<%= back_button_link 'back', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "notext"</p>
+<%= back_button_link 'back', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'notext'} %>
+<br/>
+
+<h4>Grid Button Link</h4>
+<p>data-icon ="grid" and data-role = "button" are default</p>
+<%= grid_button_link 'grid', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "top"</p>
+<%= grid_button_link 'grid', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'top'} %>
+<br/>
+
+<h4>Star Button Link</h4>
+<p>data-icon ="star" and data-role = "button" are default</p>
+<%= star_button_link 'star', buttons_path %>
+<p>Set data-theme = "a", data-iconpos = "top"</p>
+<%= star_button_link 'star', buttons_path, {'data-theme' => 'a', 'data-iconpos' => 'top'} %>
+<br/>
+
+<h4>Alert Button Link</h4>
+<p>data-icon ="alert" and data-role = "button" are default</p>
+<%= alert_button_link 'alert', buttons_path %>
+<p>Set data-theme = "b", data-iconpos = "notext"</p>
+<%= alert_button_link 'alert', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'notext'} %>
+<br/>
+
+<h4>Info Button Link</h4>
+<p>data-icon ="info" and data-role = "button" are default</p>
+<%= info_button_link 'info', buttons_path %>
+<p>Set data-theme = "b", data-iconpos = "notext"</p>
+<%= info_button_link 'info', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'notext'} %>
+<br/>
+
+<h4>Home Button Link</h4>
+<p>data-icon ="home" and data-role = "button" are default</p>
+<%= home_button_link 'home', buttons_path %>
+<p>Set data-theme = "b", data-iconpos = "bottom"</p>
+<%= home_button_link 'home', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'bottom', 'data-inline' => 'true'} %>
+<br/>
+
+<h4>Search Button Link</h4>
+<p>data-icon ="search" and data-role = "button" are default</p>
+<%= search_button_link 'search', buttons_path %>
+<p>Set data-theme = "b", data-iconpos = "notext"</p>
+<%= search_button_link 'search', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'notext'} %>
+<br/>
+
+<h4>Grouped Button</h4>
+<p>data-role ="controlgroup" is default</p>
+<%= group_button("
+    #{home_button_link('home', buttons_path, 'data-iconpos' => 'right')}
+    #{refresh_button_link 'refresh', buttons_path}
+    #{info_button_link 'info', buttons_path}") %>
+<p>Set data-type = "horizontal"</p>
+<%= group_button("
+    #{home_button_link('home', buttons_path, 'data-iconpos' => 'right')}
+    #{refresh_button_link 'refresh', buttons_path}
+    #{info_button_link 'info', buttons_path}", {'data-type' => 'horizontal'}) %>
+<br/>
+
