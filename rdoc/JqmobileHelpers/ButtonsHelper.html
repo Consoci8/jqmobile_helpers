@@ -58,6 +58,53 @@
 
 			<!-- Method Quickref -->
 			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-alert_button_link">#alert_button_link</a></li>
+					
+					<li><a href="#method-i-back_button_link">#back_button_link</a></li>
+					
+					<li><a href="#method-i-button_link">#button_link</a></li>
+					
+					<li><a href="#method-i-check_button_link">#check_button_link</a></li>
+					
+					<li><a href="#method-i-delete_button_link">#delete_button_link</a></li>
+					
+					<li><a href="#method-i-down_button_link">#down_button_link</a></li>
+					
+					<li><a href="#method-i-forward_button_link">#forward_button_link</a></li>
+					
+					<li><a href="#method-i-gear_button_link">#gear_button_link</a></li>
+					
+					<li><a href="#method-i-grid_button_link">#grid_button_link</a></li>
+					
+					<li><a href="#method-i-group_button">#group_button</a></li>
+					
+					<li><a href="#method-i-home_button_link">#home_button_link</a></li>
+					
+					<li><a href="#method-i-info_button_link">#info_button_link</a></li>
+					
+					<li><a href="#method-i-left_button_link">#left_button_link</a></li>
+					
+					<li><a href="#method-i-minus_button_link">#minus_button_link</a></li>
+					
+					<li><a href="#method-i-plus_button_link">#plus_button_link</a></li>
+					
+					<li><a href="#method-i-refresh_button_link">#refresh_button_link</a></li>
+					
+					<li><a href="#method-i-right_button_link">#right_button_link</a></li>
+					
+					<li><a href="#method-i-search_button_link">#search_button_link</a></li>
+					
+					<li><a href="#method-i-star_button_link">#star_button_link</a></li>
+					
+					<li><a href="#method-i-up_button_link">#up_button_link</a></li>
+					
+				</ul>
+			</div>
+			
 
 			<!-- Included Modules -->
 			
@@ -93,6 +140,8 @@
 				
 					<li><a href="../JqmobileHelpers.html">JqmobileHelpers</a></li>
 				
+					<li><a href="../JqmobileHelpers/ButtonsHelper.html">JqmobileHelpers::ButtonsHelper</a></li>
+				
 					<li><a href="../JqmobileHelpers/ListViewsHelper.html">JqmobileHelpers::ListViewsHelper</a></li>
 				
 					<li><a href="../JqmobileHelpers/Railtie.html">JqmobileHelpers::Railtie</a></li>
@@ -111,7 +160,7 @@
 		<div id="description">
 			<h1><a href="../JqmobileHelpers.html">JqmobileHelpers</a> Buttons Helper</h1>
 <p>
-Provides a set of helper methods for jquery-mobile buttons 
+Provides a set of helper methods for jquery-mobile buttons
 </p>
 
 		</div>
@@ -124,6 +173,1200 @@ Provides a set of helper methods for jquery-mobile buttons
 
 		<!-- Methods -->
 		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="alert-button-link-method" class="method-detail ">
+				<a name="method-i-alert_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">alert_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Alert Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  alert_button_link 'alert', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;alert&quot; href=&quot;/posts/new&quot;&gt;alert&lt;/a&gt;
+
+  alert_button_link 'alert', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;alert&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;alert&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="alert-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 454</span>
+454:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">alert_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+455: 
+456:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+457:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;alert&quot;</span>}
+458: 
+459:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+460:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+461:       <span class="ruby-keyword kw">end</span>
+462: 
+463:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+464:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+465:       <span class="ruby-keyword kw">end</span>
+466: 
+467:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+468:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+469:       <span class="ruby-keyword kw">end</span>
+470: 
+471:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+472:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="back-button-link-method" class="method-detail ">
+				<a name="method-i-back_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">back_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Back Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  back_button_link 'back', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;back&quot; href=&quot;/posts/new&quot;&gt;back&lt;/a&gt;
+
+  back_button_link 'back', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;back&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;back&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="back-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 367</span>
+367:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">back_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+368: 
+369:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+370:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;back&quot;</span>}
+371: 
+372:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+373:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+374:       <span class="ruby-keyword kw">end</span>
+375: 
+376:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+377:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+378:       <span class="ruby-keyword kw">end</span>
+379: 
+380:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+381:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+382:       <span class="ruby-keyword kw">end</span>
+383: 
+384:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+385:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="button-link-method" class="method-detail ">
+				<a name="method-i-button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  button_link 'New Post', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; href=&quot;http://google.com&quot;&gt;New Post&lt;/a&gt;
+
+  button_link 'New Post', new_post_path, {'data-theme' =&gt; 'c', 'data-icon' =&gt; 'plus', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-icon=&quot;plus&quot; data-iconpos=&quot;right&quot; data-role=&quot;button&quot; data-theme=&quot;c&quot; href=&quot;http://google.com&quot;&gt;New Post&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="button-link-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 15</span>
+15:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+16: 
+17:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+18:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>}
+19: 
+20:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-icon'</span>)
+21:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-icon'</span>]})
+22:       <span class="ruby-keyword kw">end</span>
+23: 
+24:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+25:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+26:       <span class="ruby-keyword kw">end</span>
+27: 
+28:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+29:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+30:       <span class="ruby-keyword kw">end</span>
+31: 
+32:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+33:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+34:       <span class="ruby-keyword kw">end</span>
+35: 
+36:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+37:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="check-button-link-method" class="method-detail ">
+				<a name="method-i-check_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">check_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Check Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  check_button_link 'check', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;check&quot; href=&quot;/posts/new&quot;&gt;check&lt;/a&gt;
+
+  check_button_link 'check', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;check&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;check&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="check-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 251</span>
+251:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+252: 
+253:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+254:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;check&quot;</span>}
+255: 
+256:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+257:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+258:       <span class="ruby-keyword kw">end</span>
+259: 
+260:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+261:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+262:       <span class="ruby-keyword kw">end</span>
+263: 
+264:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+265:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+266:       <span class="ruby-keyword kw">end</span>
+267: 
+268:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+269:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="delete-button-link-method" class="method-detail ">
+				<a name="method-i-delete_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">delete_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Delete Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  delete_button_link 'Delete', destroy_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;delete&quot; href=&quot;/posts/new&quot;&gt;Delete&lt;/a&gt;
+
+  delete_button_link 'Delete', destroy_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;delete&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/destroy&quot;&gt;Delete&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="delete-button-link-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 48</span>
+48:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delete_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+49: 
+50:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+51:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;delete&quot;</span>}
+52: 
+53:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+54:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+55:       <span class="ruby-keyword kw">end</span>
+56: 
+57:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+58:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+59:       <span class="ruby-keyword kw">end</span>
+60: 
+61:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+62:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+63:       <span class="ruby-keyword kw">end</span>
+64: 
+65:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+66:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="down-button-link-method" class="method-detail ">
+				<a name="method-i-down_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">down_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Down Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  down_button_link 'bottom', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;arrow-d&quot; href=&quot;/posts/new&quot;&gt;bottom&lt;/a&gt;
+
+  down_button_link 'bottom', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'bottom'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;arrow-d&quot; data-iconpos=&quot;bottom&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;bottom&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="down-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 164</span>
+164:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">down_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+165: 
+166:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+167:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;arrow-d&quot;</span>}
+168: 
+169:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+170:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+171:       <span class="ruby-keyword kw">end</span>
+172: 
+173:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+174:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+175:       <span class="ruby-keyword kw">end</span>
+176: 
+177:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+178:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+179:       <span class="ruby-keyword kw">end</span>
+180: 
+181:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+182:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="forward-button-link-method" class="method-detail ">
+				<a name="method-i-forward_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">forward_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Forward Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  forward_button_link 'forward', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;forward&quot; href=&quot;/posts/new&quot;&gt;forward&lt;/a&gt;
+
+  forward_button_link 'forward', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;forward&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;forward&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="forward-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 338</span>
+338:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">forward_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+339: 
+340:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+341:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;forward&quot;</span>}
+342: 
+343:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+344:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+345:       <span class="ruby-keyword kw">end</span>
+346: 
+347:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+348:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+349:       <span class="ruby-keyword kw">end</span>
+350: 
+351:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+352:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+353:       <span class="ruby-keyword kw">end</span>
+354: 
+355:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+356:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="gear-button-link-method" class="method-detail ">
+				<a name="method-i-gear_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">gear_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Gear Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  gear_button_link 'gear', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;gear&quot; href=&quot;/posts/new&quot;&gt;gear&lt;/a&gt;
+
+  gear_button_link 'gear', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;gear&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;gear&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="gear-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 280</span>
+280:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">gear_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+281: 
+282:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+283:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;gear&quot;</span>}
+284: 
+285:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+286:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+287:       <span class="ruby-keyword kw">end</span>
+288: 
+289:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+290:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+291:       <span class="ruby-keyword kw">end</span>
+292: 
+293:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+294:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+295:       <span class="ruby-keyword kw">end</span>
+296: 
+297:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+298:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="grid-button-link-method" class="method-detail ">
+				<a name="method-i-grid_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">grid_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Grid Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  grid_button_link 'grid', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;grid&quot; href=&quot;/posts/new&quot;&gt;grid&lt;/a&gt;
+
+  grid_button_link 'grid', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;grid&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;grid&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="grid-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 396</span>
+396:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">grid_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+397: 
+398:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+399:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;grid&quot;</span>}
+400: 
+401:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+402:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+403:       <span class="ruby-keyword kw">end</span>
+404: 
+405:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+406:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+407:       <span class="ruby-keyword kw">end</span>
+408: 
+409:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+410:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+411:       <span class="ruby-keyword kw">end</span>
+412: 
+413:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+414:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="group-button-method" class="method-detail ">
+				<a name="method-i-group_button"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">group_button</span><span
+						class="method-args">(content, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Grouped Button
+</p>
+<h4>Examples</h4>
+<pre>
+  group_button(&quot;
+      #{home_button_link('home', buttons_path, 'data-iconpos' =&gt; 'right')}
+      #{refresh_button_link 'refresh', buttons_path}
+       &quot;)
+  # =&gt; &lt;div data-role=&quot;controlgroup&quot;&gt;
+         &lt;a data-icon=&quot;home&quot; data-iconpos=&quot;right&quot; data-role=&quot;button&quot; href=&quot;/buttons&quot;&gt;home&lt;/a&gt;
+         &lt;a data-icon=&quot;refresh&quot; data-role=&quot;button&quot; href=&quot;/buttons&quot;&gt;refresh&lt;/a&gt;
+       &lt;/div&gt;
+
+  group_button(&quot;
+      #{home_button_link('home', buttons_path, 'data-iconpos' =&gt; 'right')}
+      #{refresh_button_link 'refresh', buttons_path}, {'data-type' =&gt; 'horizontal'}
+       &quot;)
+  # =&gt; &lt;div data-role=&quot;controlgroup&quot; data-type=&quot;horizontal&quot; &gt;
+         &lt;a data-icon=&quot;home&quot; data-iconpos=&quot;right&quot; data-role=&quot;button&quot; href=&quot;/buttons&quot;&gt;home&lt;/a&gt;
+         &lt;a data-icon=&quot;refresh&quot; data-role=&quot;button&quot; href=&quot;/buttons&quot;&gt;refresh&lt;/a&gt;
+       &lt;/div&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="group-button-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 581</span>
+581:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">group_button</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">options</span> = {})
+582: 
+583:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+584:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span>=<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;controlgroup&quot;</span>}
+585: 
+586:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-type'</span>)
+587:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-type'</span>]})
+588:       <span class="ruby-keyword kw">end</span>
+589: 
+590:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:div</span>, <span class="ruby-identifier">content</span>, <span class="ruby-identifier">default_options</span>, <span class="ruby-keyword kw">false</span>)
+591:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="home-button-link-method" class="method-detail ">
+				<a name="method-i-home_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">home_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Home Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  home_button_link 'home', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;home&quot; href=&quot;/posts/new&quot;&gt;home&lt;/a&gt;
+
+  home_button_link 'home', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;home&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;home&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="home-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 512</span>
+512:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">home_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+513: 
+514:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+515:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;home&quot;</span>}
+516: 
+517:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+518:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+519:       <span class="ruby-keyword kw">end</span>
+520: 
+521:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+522:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+523:       <span class="ruby-keyword kw">end</span>
+524: 
+525:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+526:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+527:       <span class="ruby-keyword kw">end</span>
+528: 
+529:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+530:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="info-button-link-method" class="method-detail ">
+				<a name="method-i-info_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">info_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Info Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  info_button_link 'info', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;info&quot; href=&quot;/posts/new&quot;&gt;info&lt;/a&gt;
+
+  info_button_link 'info', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;info&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;info&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="info-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 483</span>
+483:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">info_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+484: 
+485:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+486:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;info&quot;</span>}
+487: 
+488:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+489:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+490:       <span class="ruby-keyword kw">end</span>
+491: 
+492:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+493:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+494:       <span class="ruby-keyword kw">end</span>
+495: 
+496:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+497:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+498:       <span class="ruby-keyword kw">end</span>
+499: 
+500:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+501:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="left-button-link-method" class="method-detail ">
+				<a name="method-i-left_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">left_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Left Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  left_button_link 'Back', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;arrow-l&quot; href=&quot;/posts/new&quot;&gt;Back&lt;/a&gt;
+
+  left_button_link 'Back', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;arrow-l&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;Back&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="left-button-link-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 77</span>
+77:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">left_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+78: 
+79:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+80:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;arrow-l&quot;</span>}
+81: 
+82:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+83:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+84:       <span class="ruby-keyword kw">end</span>
+85: 
+86:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+87:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+88:       <span class="ruby-keyword kw">end</span>
+89: 
+90:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+91:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+92:       <span class="ruby-keyword kw">end</span>
+93: 
+94:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+95:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="minus-button-link-method" class="method-detail ">
+				<a name="method-i-minus_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">minus_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Minus Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  minus_button_link 'minus', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;minus&quot; href=&quot;/posts/new&quot;&gt;minus&lt;/a&gt;
+
+  minus_button_link 'minus', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;minus&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;minus&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="minus-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 222</span>
+222:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">minus_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+223: 
+224:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+225:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;minus&quot;</span>}
+226: 
+227:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+228:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+229:       <span class="ruby-keyword kw">end</span>
+230: 
+231:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+232:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+233:       <span class="ruby-keyword kw">end</span>
+234: 
+235:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+236:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+237:       <span class="ruby-keyword kw">end</span>
+238: 
+239:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+240:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="plus-button-link-method" class="method-detail ">
+				<a name="method-i-plus_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">plus_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Plus Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  plus_button_link 'plus', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;plus&quot; href=&quot;/posts/new&quot;&gt;plus&lt;/a&gt;
+
+  plus_button_link 'plus', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;plus&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;plus&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="plus-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 193</span>
+193:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">plus_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+194: 
+195:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+196:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;plus&quot;</span>}
+197: 
+198:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+199:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+200:       <span class="ruby-keyword kw">end</span>
+201: 
+202:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+203:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+204:       <span class="ruby-keyword kw">end</span>
+205: 
+206:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+207:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+208:       <span class="ruby-keyword kw">end</span>
+209: 
+210:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+211:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="refresh-button-link-method" class="method-detail ">
+				<a name="method-i-refresh_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">refresh_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Refresh Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  refresh_button_link 'refresh', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;refresh&quot; href=&quot;/posts/new&quot;&gt;refresh&lt;/a&gt;
+
+  refresh_button_link 'refresh', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;refresh&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;refresh&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="refresh-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 309</span>
+309:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">refresh_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+310: 
+311:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+312:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;refresh&quot;</span>}
+313: 
+314:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+315:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+316:       <span class="ruby-keyword kw">end</span>
+317: 
+318:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+319:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+320:       <span class="ruby-keyword kw">end</span>
+321: 
+322:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+323:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+324:       <span class="ruby-keyword kw">end</span>
+325: 
+326:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+327:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="right-button-link-method" class="method-detail ">
+				<a name="method-i-right_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">right_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Right Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  right_button_link 'Proceed', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;arrow-r&quot; href=&quot;/posts/new&quot; data-theme=&quot;c&quot;&gt;Proceed&lt;/a&gt;
+
+  right_button_link 'Proceed', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;arrow-r&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;Proceed&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="right-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 106</span>
+106:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">right_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+107: 
+108:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+109:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;arrow-r&quot;</span>}
+110: 
+111:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+112:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+113:       <span class="ruby-keyword kw">end</span>
+114: 
+115:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+116:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+117:       <span class="ruby-keyword kw">end</span>
+118: 
+119:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+120:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+121:       <span class="ruby-keyword kw">end</span>
+122: 
+123:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+124:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="search-button-link-method" class="method-detail ">
+				<a name="method-i-search_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">search_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Search Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  search_button_link 'search', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;search&quot; href=&quot;/posts/new&quot;&gt;search&lt;/a&gt;
+
+  search_button_link 'search', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;search&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;search&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="search-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 541</span>
+541:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">search_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+542: 
+543:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+544:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;search&quot;</span>}
+545: 
+546:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+547:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+548:       <span class="ruby-keyword kw">end</span>
+549: 
+550:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+551:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+552:       <span class="ruby-keyword kw">end</span>
+553: 
+554:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+555:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+556:       <span class="ruby-keyword kw">end</span>
+557: 
+558:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+559:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="star-button-link-method" class="method-detail ">
+				<a name="method-i-star_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">star_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Star Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  star_button_link 'star', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;star&quot; href=&quot;/posts/new&quot;&gt;star&lt;/a&gt;
+
+  star_button_link 'star', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'right'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;star&quot; data-iconpos=&quot;right&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;star&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="star-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 425</span>
+425:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">star_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+426: 
+427:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+428:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;star&quot;</span>}
+429: 
+430:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+431:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+432:       <span class="ruby-keyword kw">end</span>
+433: 
+434:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+435:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+436:       <span class="ruby-keyword kw">end</span>
+437: 
+438:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+439:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+440:       <span class="ruby-keyword kw">end</span>
+441: 
+442:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+443:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="up-button-link-method" class="method-detail ">
+				<a name="method-i-up_button_link"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">up_button_link</span><span
+						class="method-args">(name, link, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Up Button Link
+</p>
+<h4>Examples</h4>
+<pre>
+  up_button_link 'top', new_post_path
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;arrow-u&quot; href=&quot;/posts/new&quot;&gt;top&lt;/a&gt;
+
+  up_button_link 'top', new_post_path, {'data-theme' =&gt; 'c', 'data-iconpos' =&gt; 'top'}
+  # =&gt; &lt;a data-role=&quot;button&quot; data-icon=&quot;arrow-u&quot; data-iconpos=&quot;top&quot; data-theme=&quot;c&quot; href=&quot;/posts/new&quot;&gt;top&lt;/a&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="up-button-link-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 135</span>
+135:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">up_button_link</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> = {})
+136: 
+137:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+138:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;arrow-u&quot;</span>}
+139: 
+140:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+141:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+142:       <span class="ruby-keyword kw">end</span>
+143: 
+144:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+145:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+146:       <span class="ruby-keyword kw">end</span>
+147: 
+148:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inline'</span>)
+149:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inline'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inline'</span>]})
+150:       <span class="ruby-keyword kw">end</span>
+151: 
+152:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+153:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
 
 	</div>
 
