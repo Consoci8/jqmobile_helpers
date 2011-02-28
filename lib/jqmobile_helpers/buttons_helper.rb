@@ -557,6 +557,30 @@ module JqmobileHelpers
 
       content_tag(:a, name, {:href => link}.merge(default_options))
     end
+    
+    
+    
+    # ====================================== BACK-SPLIT-BUTTON ===========================================================
+    # In cases where there is more than one possible action per list item,
+    # a split button can be used to offer two independently clickable items -- the list item and a small arrow icon in the far right
+    # The framework will add a vertical divider line and sets the title attribute of the link to the text the link for accessibility.
+    # It is similar for the Split-Button List.
+    # 
+    # 
+    # ==== Options
+    #   # => 'data-inset' => 'true' (Default data-inset is set to true)
+    #   # => 'data-theme' => 'c' (Default data-theme is set to c)
+    #      
+    # ==== Examples
+    #   <%= back_split_button "Back", posts_path %>
+    #   # => <div data-role="content"><a href="index.html" data-role="button" data-rel="back">Back</a></div>  
+    #
+    #
+    def back_split_button(name, link, options ={} )
+      html_options = options.stringify_keys!
+      default_options = {'data-role' => "button", 'data-rel' => "back"}  
+      content_tag(:a, name, {:href => link}.merge(default_options))
+    end
 
     # Grouped Button
     #

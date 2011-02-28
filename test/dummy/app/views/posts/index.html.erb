@@ -48,9 +48,10 @@
 <%= split_button_list(post.name, post_path(post))%>
 <% end %>
 
+
 <h2>Count Bubble List</h2>
 
-
+<%= count_bubble(@posts.map do |x| [x.title, link_to(x.title, post_path(x))] end)%>
 
 
 <br /><br />
@@ -64,5 +65,27 @@
 	end) %>
 
 		
+<br /><br />
+
+<h2>Icon List</h2>
+
+<%= icon_list(@posts.map do |x| 
+	  [image_tag('https://github.com/jquery/jquery-mobile/blob/master/docs/lists/images/gb.png', :class => "ui-li-icon"), 
+	  link_to(x.title, post_path(x))]
+	end) %>
+
+		
+<br /><br />
+
+<h2>Search Filter List</h2>
+
+<%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}) %>
+
+<br /><br />
+
+<h2>List Performance Test</h2>
+
+<%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}, {'data-theme' => "d"}) %>
+
 <br /><br />
 <%= link_to 'New Post', new_post_path %>

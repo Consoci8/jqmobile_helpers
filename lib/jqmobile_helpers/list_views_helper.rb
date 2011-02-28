@@ -93,20 +93,20 @@ module JqmobileHelpers
     #  <%= split_button_list(post.name, post_path(post)) %>
     #  <% end %>
     #    
-    def split_button_list(name, link, options = {})
+    def split_button_list(name,link, options={})
       html_attributes_options(options)
+      default_split_options = {'data-icon' => "gear"}
       split_options = {'data-rel' => "dialog", 'data-transition' => "slideup"}
       list = content_tag("li", content_tag(:a, name, {:href => link}.merge(split_options)))
       #list = content_tag("li", content_tag(:a, data, {:href => link}.merge(split_options)))
-      content_tag(:ul, list, self.default_options)
+      content_tag(:ul, list, self.default_options.merge(default_split_options))
     end
     
     
-    # ====================================== BACK-SPLIT-BUTTON LIST ===========================================================
+    # ====================================== SPLIT-BUTTON LIST ===========================================================
     # In cases where there is more than one possible action per list item,
     # a split button can be used to offer two independently clickable items -- the list item and a small arrow icon in the far right
     # The framework will add a vertical divider line and sets the title attribute of the link to the text the link for accessibility.
-    # It is similar for the Split-Button List.
     # 
     # 
     # ==== Options
@@ -114,20 +114,26 @@ module JqmobileHelpers
     #   # => 'data-theme' => 'c' (Default data-theme is set to c)
     #      
     # ==== Examples
-    #   <%= back_split_button "Back", posts_path %>
-    #   # => <div data-role="content"><a href="index.html" data-role="button" data-rel="back">Back</a></div>  
+    #   <%= split_button_list "Split Button List", post_path(@posts) %>
+    #   # => <ul data-role="listview" data-split-icon="gear" data-split-theme="d"><li><a data-rel="dialog" data-transition="slideup" href="/posts/1">Split Button List</a></li></ul>  
     #
+    # ======for collections of data that have more than one.
+    #  <% @posts.each do |post|
+    #  <%= split_button_list(post.name, post_path(post)) %>
+    #  <% end %>
     #
-    def back_split_button(name, link, options ={} )
-      html_options = options.stringify_keys!
-      default_options = {'data-role' => "button", 'data-rel' => "back"}  
-      content_tag(:a, name, {:href => link}.merge(default_options))
-    end
-
-    def count_bubble(collection, name, link, options = {})
+    def count_bubble(collection, options = {})
       html_attributes_options(options)
-      total_size = collection.map{|item| item}.size
-      list = content_tag("li", content_tag(:a, name, {:href => link}), :span, total_size, :class => "ui-li-count")
+      list = collection.map do |item|
+        if item.is_a?(Array)
+          if item[1].blank?
+            item[1] = content_tag(:a, "No item description", :href => "")
+          end
+          content_tag("li", "#{item[1]}<span class=ui-li-count>#{item.size}</span>".html_safe)
+        else
+          content_tag("li", item)
+        end
+      end
       content_tag(:ul, list.join.html_safe, self.default_options)
     end
     
@@ -161,6 +167,58 @@ module JqmobileHelpers
       end
       content_tag(:ul, list.join.html_safe, default_options.update('data-inset' => 'false'))
     end
+    
+    # ====================================== ICON LIST ===========================================================
+    # To add thumbnails to the left of a list item, the first element in your collection must have a image_tag.
+    # The framework will scale the image to 80 pixels square. 
+    #
+    # Items in your collection must also be constructed inside an array with 3 elements inside 
+    #  
+    # ==== Examples
+    #      <%= icon_list(@posts.collect do |x| 
+    #	       [image_tag('/images/sample-pic.jpg'), link_to(x.title, post_path(x))]
+    #	     end) %>
+    #      # => <ul data-inset="false" data-role="listview">
+    #             <li><img alt="Gb" class="ui-li-icon" src="https://github.com/jquery/jquery-mobile/blob/master/docs/lists/images/gb.png" />
+    #                 <a href="/posts/1">First Title </a>
+    #                 <span class=ui-li-count>2</span>
+    #             </li>
+    #           </ul> 
+    #
+    def icon_list(collection, options = {})
+      html_attributes_options(options)
+      list = collection.map do |item|
+        if item.is_a?(Array)
+          if item[1].blank?
+            item[1] = content_tag(:a, "No item description", :href => "")
+          end
+          content_tag("li", item[0] + "#{item[1]}<span class=ui-li-count>#{item.size}</span>".html_safe)
+        else
+          content_tag("li", item)
+        end
+      end
+      content_tag(:ul, list.join.html_safe, default_options.update('data-inset' => 'false'))
+    end
+    
+      # ====================================== SEARCH FILTER LIST ===========================================================
+      # jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature. 
+      # To make a list filterable, simply add the data-filter="true" attribute to the list. 
+      # The framework will then append a search box above the list 
+      # and add the behavior to filter out list items that don't contain the current search string as the user types.
+      #
+      # ==== Examples
+      #      <%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}) %> 
+      #      # => <ul data-inset="false" data-role="listview" data-filter="true">
+      #             <li>          
+      #               <a href="/posts/1">Title 1</a></h3><p>Title 1</p>
+      #             </li>
+      #           </ul> 
+      #
+      def search_filter_list(collection, options = {})
+        html_attributes_options(options)
+        list = collection.map{|item| content_tag("li", item)}
+        content_tag(:ul, list.join.html_safe, default_options.update('data-filter' => 'true', 'data-inset' => 'false'))
+      end
     
     private
       

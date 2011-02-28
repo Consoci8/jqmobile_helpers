@@ -13,5 +13,9 @@ class ToolbarsHelperTest < ActiveSupport::TestCase
     assert_equal "<a data-direction=\"reverse\" data-icon=\"home\" data-iconpos=\"notext\" data-theme=\"c\" href=\"http://localhost:3000/\">Home</a>", toolbar_link
   end
 
+  test "navbar bar container with navbar link" do
+    navbar = navbar_bar([navbar_link('list view','http://localhost:3000/',{'data-theme' => 'c','data-icon' => 'gear', 'class' => 'ui-btn-active'})])
+    assert_equal "<div data-role=\"navbar\"><ul><li><a class=\"ui-btn-active\" data-icon=\"gear\" data-theme=\"c\" href=\"http://localhost:3000/\">list view</a></li></ul></div>", navbar
+  end
 
 end
