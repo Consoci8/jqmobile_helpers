@@ -103,5 +103,10 @@ class ButtonsHelperTest < ActiveSupport::TestCase
     assert_equal "<div data-role=\"controlgroup\" data-type=\"horizontal\"><a data-icon=\"home\" data-iconpos=\"right\" data-role=\"button\" href=\"/buttons\">home</a></div>", jq_group_button
   end
 
+  test "inline button helper" do
+    jq_inline_button = inline_button("<a data-icon=\"home\" data-iconpos=\"right\" data-role=\"button\" href=\"/buttons\">home</a>")
+    assert_equal "<div data-inline=\"true\" data-role=\"controlgroup\" data-type=\"horizontal\"><a data-icon=\"home\" data-iconpos=\"right\" data-role=\"button\" href=\"/buttons\">home</a></div>", jq_inline_button
+  end
+
 end
 

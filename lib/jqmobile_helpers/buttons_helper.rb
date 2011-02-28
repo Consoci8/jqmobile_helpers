@@ -590,6 +590,26 @@ module JqmobileHelpers
       content_tag(:div, content, default_options, false)
     end
 
+    # Inline Buttons
+    #
+    # ==== Examples
+    #   inline_button("
+    #       #{home_button_link('home', buttons_path, 'data-iconpos' => 'right')}
+    #       #{refresh_button_link 'refresh', buttons_path}
+    #        ")
+    #   # => <div data-inline="true" data-role="controlgroup" data-type="horizontal">
+    #          <a data-icon="home" data-iconpos="right" data-role="button" href="/buttons">home</a>
+    #          <a data-icon="refresh" data-role="button" href="/buttons">refresh</a>
+    #        </div>
+    #
+
+    def inline_button(content)
+
+      default_options = {'data-inline'=> "true", 'data-role'=> "controlgroup", 'data-type' => "horizontal"}
+
+      content_tag(:div, content, default_options, false)
+    end
+
   end
 end
 
