@@ -1,4 +1,1 @@
-require 'jqmobile_helpers/railtie.rb'
-
-module JqmobileHelpers
-end
+require 'jqmobile_helpers/railtie'
