@@ -9,6 +9,7 @@ module JqmobileHelpers
         include JqmobileHelpers::ListViewsHelper
         include JqmobileHelpers::ToolbarsHelper
         include JqmobileHelpers::ButtonsHelper
+        include JqmobileHelpers::FormHelper
       end
     end
   end  
