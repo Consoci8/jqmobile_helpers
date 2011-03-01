@@ -66,6 +66,8 @@
 					
 					<li><a href="#method-i-back_button_link">#back_button_link</a></li>
 					
+					<li><a href="#method-i-back_split_button">#back_split_button</a></li>
+					
 					<li><a href="#method-i-button_link">#button_link</a></li>
 					
 					<li><a href="#method-i-check_button_link">#check_button_link</a></li>
@@ -85,6 +87,8 @@
 					<li><a href="#method-i-home_button_link">#home_button_link</a></li>
 					
 					<li><a href="#method-i-info_button_link">#info_button_link</a></li>
+					
+					<li><a href="#method-i-inline_button">#inline_button</a></li>
 					
 					<li><a href="#method-i-left_button_link">#left_button_link</a></li>
 					
@@ -147,6 +151,10 @@
 					<li><a href="../JqmobileHelpers/Railtie.html">JqmobileHelpers::Railtie</a></li>
 				
 					<li><a href="../JqmobileHelpers/ToolbarsHelper.html">JqmobileHelpers::ToolbarsHelper</a></li>
+				
+					<li><a href="../JqmobileHelper.html">JqmobileHelper</a></li>
+				
+					<li><a href="../JqmobileHelper/FormBuilder.html">JqmobileHelper::FormBuilder</a></li>
 				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -287,6 +295,59 @@ Back Button Link
 383: 
 384:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
 385:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="back-split-button-method" class="method-detail ">
+				<a name="method-i-back_split_button"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">back_split_button</span><span
+						class="method-args">(name, link, options ={} )</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<h6>BACK-SPLIT-BUTTON ===========================================================</h6>
+<p>
+In cases where there is more than one possible action per list item, a
+split button can be used to offer two independently clickable items &#8212;
+the list item and a small arrow icon in the far right The framework will
+add a vertical divider line and sets the title attribute of the link to the
+text the link for accessibility. It is similar for the Split-Button List.
+</p>
+<h4>Options</h4>
+<pre>
+  # =&gt; 'data-inset' =&gt; 'true' (Default data-inset is set to true)
+  # =&gt; 'data-theme' =&gt; 'c' (Default data-theme is set to c)
+     
+</pre>
+<h4>Examples</h4>
+<pre>
+  &lt;%= back_split_button &quot;Back&quot;, posts_path %&gt;
+  # =&gt; &lt;div data-role=&quot;content&quot;&gt;&lt;a href=&quot;index.html&quot; data-role=&quot;button&quot; data-rel=&quot;back&quot;&gt;Back&lt;/a&gt;&lt;/div&gt;  </pre>
+					
+
+					
+					<div class="method-source-code"
+						id="back-split-button-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 579</span>
+579:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">back_split_button</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> ={} )
+580:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+581:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;button&quot;</span>, <span class="ruby-value str">'data-rel'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;back&quot;</span>}  
+582:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+583:     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -755,18 +816,18 @@ Grouped Button
 					<div class="method-source-code"
 						id="group-button-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 581</span>
-581:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">group_button</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">options</span> = {})
-582: 
-583:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
-584:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span>=<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;controlgroup&quot;</span>}
-585: 
-586:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-type'</span>)
-587:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-type'</span>]})
-588:       <span class="ruby-keyword kw">end</span>
-589: 
-590:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:div</span>, <span class="ruby-identifier">content</span>, <span class="ruby-identifier">default_options</span>, <span class="ruby-keyword kw">false</span>)
-591:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 605</span>
+605:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">group_button</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">options</span> = {})
+606: 
+607:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+608:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span>=<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;controlgroup&quot;</span>}
+609: 
+610:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-type'</span>)
+611:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-type'</span>]})
+612:       <span class="ruby-keyword kw">end</span>
+613: 
+614:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:div</span>, <span class="ruby-identifier">content</span>, <span class="ruby-identifier">default_options</span>, <span class="ruby-keyword kw">false</span>)
+615:     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -885,6 +946,55 @@ Info Button Link
 499: 
 500:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:a</span>, <span class="ruby-identifier">name</span>, {<span class="ruby-value">:href</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">link</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
 501:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="inline-button-method" class="method-detail ">
+				<a name="method-i-inline_button"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">inline_button</span><span
+						class="method-args">(content)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Inline Buttons
+</p>
+<h4>Examples</h4>
+<pre>
+  inline_button(&quot;
+      #{home_button_link('home', buttons_path, 'data-iconpos' =&gt; 'right')}
+      #{refresh_button_link 'refresh', buttons_path}
+       &quot;)
+  # =&gt; &lt;div data-inline=&quot;true&quot; data-role=&quot;controlgroup&quot; data-type=&quot;horizontal&quot;&gt;
+         &lt;a data-icon=&quot;home&quot; data-iconpos=&quot;right&quot; data-role=&quot;button&quot; href=&quot;/buttons&quot;&gt;home&lt;/a&gt;
+         &lt;a data-icon=&quot;refresh&quot; data-role=&quot;button&quot; href=&quot;/buttons&quot;&gt;refresh&lt;/a&gt;
+       &lt;/div&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="inline-button-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/buttons_helper.rb, line 630</span>
+630:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inline_button</span>(<span class="ruby-identifier">content</span>)
+631: 
+632:       <span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-inline'</span>=<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;true&quot;</span>, <span class="ruby-value str">'data-role'</span>=<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;controlgroup&quot;</span>, <span class="ruby-value str">'data-type'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;horizontal&quot;</span>}
+633: 
+634:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:div</span>, <span class="ruby-identifier">content</span>, <span class="ruby-identifier">default_options</span>, <span class="ruby-keyword kw">false</span>)
+635:     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

@@ -5,140 +5,10 @@ module JqmobileHelper
   # 
   # Provides a set of helper methods for jquery-mobile form elements
   # 
-  # Displays fields in a <div>, label on one line, field below it.
-  #
-  #
+  # Displays fields in a div tag, label on one line, field below it.
   # Simplify your form code by encapsulating all
-  # aspects of a field (label, description, etc) in a single method call. What
-  # used to be written as:
+  # aspects of a field (label, description, etc) in a single method call. 
   #
-  #   <div class="field">
-  #     <%= f.label :name %><br />
-  #     <%= f.text_field :name %><br />
-  #     <p>Please use proper capitalization.</p>
-  #   </div>
-  #
-  # can be written like this with Informant:
-  #
-  #   <%= f.text_field :name, :description => "Please use proper capitalization." %>
-  #
-  # The label is inferred from the field name or can be specified explicitly.
-  # The complete list of options:
-  #
-  # * <tt>:label</tt> - add a <label> tag for the field
-  # * <tt>:colon</tt> - if true, includes a colon at the end of the label
-  # * <tt>:description</tt> - explanatory text displayed underneath the field
-  # * <tt>:required</tt> - adds an asterisk if true
-  # * <tt>:decoration</tt> - arbitrary string which is appended to the field (often used for AJAX "spinner")
-  #
-  #
-  # Please see the per-method documentation for details. It's also easy to
-  # customize the display of any of the included builders. Just create a
-  # subclass and override the +default_field_template+ and
-  # +check_box_field_template+ methods.
-  #
-  # 
-  # ==== Usage Examples
-  # As an example, this view code:
-  # 
-  #   <% form_for @car do |f| %>
-  #     <% f.field_set "Details" do %>
-  # 
-  #       <%= f.text_field :name,
-  #         :required => true,
-  #         :description => "Something Italian, please." %>
-  # 
-  #       <%= f.select :manufacturer,
-  #         %w[Ascari Ferrari Lamborghini Pagani] %>
-  # 
-  #       <%= f.integer_select :wheels,
-  #         :label => "Number of wheels",
-  #         :first => 2, :last => 4 %>
-  # 
-  #       <%= f.text_area :description %>
-  # 
-  #       <%= f.submit %>
-  # 
-  #     <% end %>
-  #   <% end %>
-  # 
-  # ==== renders HTML like this (assuming the <tt>@car</tt> is a new record):
-  # 
-  #   <form action="/cars" class="new_car" id="new_car" method="post">
-  # 
-  #     <!-- Rails' form authenticity token -->
-  #     <div style="margin: 0pt; padding: 0pt;">
-  #       <input name="authenticity_token" value="..." type="hidden" />
-  #     </div>
-  # 
-  #     <fieldset>
-  #       <legend>Details</legend>
-  # 
-  #       <div id="car_name_field" class="field">
-  #         <label for="car_name">Name <span class="required">*</span></label><br />
-  #         <input id="car_name" name="car[name]" size="30" value="" type="text" />
-  #         <p class="field_description">Something Italian, please.</p>
-  #       </div>
-  # 
-  #       <div id="car_manufacturer_field" class="field">
-  #         <label for="car_manufacturer">Manufacturer</label><br />
-  #         <select id="car_manufacturer" name="car[manufacturer]">
-  #           <option value="Ascari">Ascari</option>
-  #           <option value="Ferrari">Ferrari</option>
-  #           <option value="Lamborghini">Lamborghini</option>
-  #           <option value="Pagani">Pagani</option>
-  #         </select>
-  #       </div>
-  # 
-  #       <div id="car_wheels_field" class="field">
-  #         <label for="car_wheels">Number of wheels</label><br />
-  #         <select id="car_wheels" name="car[wheels]">
-  #           <option value="2">2</option>
-  #           <option value="3">3</option>
-  #           <option value="4">4</option>
-  #         </select>
-  #       </div>
-  # 
-  #       <div id="car_description_field" class="field">
-  #         <label for="car_description">Description</label><br />
-  #         <textarea id="car_description" name="car[description]" cols="40" rows="20"></textarea>
-  #       </div>
-  # 
-  #       <div class="button">  
-  #         <input class="submit" id="car_submit" name="commit" value="Create" type="submit" />
-  #       </div>
-  # 
-  #     </fieldset>
-  #   </form>
-  # 
-  # 
-  # Note that the field label is inferred from the name if left blank, and the submit button (unless specified) says "Create" if the record is new, "Update" otherwise. There are other field options too. For a complete list please generate the API docs (<tt>cd vendor/plugins/informant; rake rdoc</tt>) or read them {online}[http://rdoc.info/projects/alexreisner/informant].
-  # 
-  # 
-  # ====  Available Field Types
-  # 
-  # Currently the following field methods are available:
-  # 
-  # * standard types
-  #   * text_field
-  #   * text_area
-  #   * check_box
-  #   * password_field
-  #   * file_field
-  #   * radio_button
-  #   * hidden_field
-  #   * select
-  #   * time_zone_select
-  #   * date_select
-  # * extended types
-  #   * integer_select
-  #   * year_select
-  #   * multipart_date_select
-  #   * habtm_check_boxes
-  #   * radio_buttons (note: plural)
-  # 
-  # Please see the inline documentation for arguments to each method.
-  # 
   class FormBuilder < ActionView::Helpers::FormBuilder
     # Declare some options as custom (don't pass to built-in form helpers).
     @@custom_field_options = [:label, :required, :description, :decoration]
@@ -167,7 +37,6 @@ module JqmobileHelper
       end
     end
 
-    ##
     # Render a set of radio buttons. Takes a method name, an array of
     # choices (just like a +select+ field), and an Informant options hash.
     #
@@ -179,7 +48,6 @@ module JqmobileHelper
       end
     end
 
-    ##
     # Render a set of check boxes for selecting HABTM-associated objects.
     # Takes a method name (eg, category_ids), an array of
     # choices (just like a +select+ field), and an Informant options hash.
@@ -223,7 +91,6 @@ module JqmobileHelper
       end
     end
 
-    ##
     # Standard Rails date selector.
     #
     def date_select(method, options = {})
@@ -257,7 +124,6 @@ module JqmobileHelper
 		  end
     end
 
-    ##
     # Year select field. Takes options <tt>:start_year</tt> and
     # <tt>:end_year</tt>, and <tt>:step</tt>.
     #
@@ -267,7 +133,6 @@ module JqmobileHelper
       integer_select(method, options)
     end
 
-    ##
     # Integer select field.
     # Takes options <tt>:first</tt>, <tt>:last</tt>, and <tt>:step</tt>.
     #
@@ -309,8 +174,7 @@ module JqmobileHelper
       super
     end
 
-    ##
-    # Render a field set (HTML <fieldset>). Takes the legend (optional), an
+    # Render a field set (HTML fieldset tag). Takes the legend (optional), an
     # options hash, and a block in which fields are rendered.
     #
     def field_set(legend = nil, options = nil, &block)
@@ -323,7 +187,6 @@ module JqmobileHelper
 
     private # ---------------------------------------------------------------
 
-    ##
     # Insert a field into its HTML "shell".
     #
     def build_shell(method, options, template = 'default_field') #:nodoc:
