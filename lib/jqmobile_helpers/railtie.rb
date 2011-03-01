@@ -5,6 +5,7 @@ module JqmobileHelpers
         require 'jqmobile_helpers/list_views_helper'
         require 'jqmobile_helpers/toolbars_helper'
         require 'jqmobile_helpers/buttons_helper'
+        require 'jqmobile_helpers/form_helper'
         
         include JqmobileHelpers::ListViewsHelper
         include JqmobileHelpers::ToolbarsHelper

@@ -4,7 +4,9 @@ Dummy::Application.routes.draw do
   resources :buttons
 
   resources :toolbars
-
+  
+  resources :forms
+  
   root :to => "posts#index"
 
   # The priority is based upon order of creation:

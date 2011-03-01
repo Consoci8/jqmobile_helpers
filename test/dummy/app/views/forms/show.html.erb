@@ -1,0 +1,24 @@
+<% content_for :header do %>
+ <h1>List View Helper</h1>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @post.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+
+
+<%= back_split_button "Back", posts_path %>
+<%= back_split_button "Edit", edit_post_path(@post) %> 
