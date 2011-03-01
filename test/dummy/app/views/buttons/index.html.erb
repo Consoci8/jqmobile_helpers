@@ -145,6 +145,12 @@
 <%= inline_button("
     #{home_button_link('home', buttons_path, 'data-iconpos' => 'right')}
     #{refresh_button_link 'refresh', buttons_path}") %>
+<p>Set data-inline="true" inside each a href</p>
+<%= home_button_link 'home', buttons_path, {'data-inline' => 'true'} %>
+<%= search_button_link 'search', buttons_path, {'data-inline' => 'true'} %>
+<%= alert_button_link 'alert', buttons_path, {'data-inline' => 'true'} %>
+<%= star_button_link 'star', buttons_path, {'data-inline' => 'true'} %>
+
 <br/>
 
 <h4>Grouped Button</h4>

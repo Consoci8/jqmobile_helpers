@@ -58,23 +58,23 @@
 
 <h2>Thumbnails List</h2>
 
-<%= thumbnail_list(@posts.collect do |x| 
-	  [image_tag('https://github.com/jquery/jquery-mobile/raw/master/docs/lists/images/album-bb.jpg'), 
-	  link_to(x.title, post_path(x)), 
+<%= thumbnail_list(@posts.collect do |x|
+	  [image_tag('https://github.com/jquery/jquery-mobile/raw/master/docs/lists/images/album-bb.jpg'),
+	  link_to(x.title, post_path(x)),
 	  x.title]
 	end) %>
 
-		
+
 <br /><br />
 
 <h2>Icon List</h2>
 
-<%= icon_list(@posts.map do |x| 
-	  [image_tag('https://github.com/jquery/jquery-mobile/blob/master/docs/lists/images/gb.png', :class => "ui-li-icon"), 
+<%= icon_list(@posts.map do |x|
+	  [image_tag('https://github.com/jquery/jquery-mobile/blob/master/docs/lists/images/gb.png', :class => "ui-li-icon"),
 	  link_to(x.title, post_path(x))]
 	end) %>
 
-		
+
 <br /><br />
 
 <h2>Search Filter List</h2>
@@ -88,4 +88,26 @@
 <%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}, {'data-theme' => "d"}) %>
 
 <br /><br />
+
+<h2>Inset linked list</h2>
+<p>data-inset='true' is default</p>
+<p>data-theme='c' is default</p>
+<%= inset_list @posts.map{|x| link_to(x.title, post_path(x))} %>
+<br />
+<p>Set data-theme='b'</p>
+<%= inset_list @posts.map{|x| link_to(x.title, post_path(x))}, {'data-theme' => "b"} %>
+<br /><br />
+
+<h2>Inset Order linked list</h2>
+<p>data-inset='true' is default</p>
+<p>data-theme='c' is default</p>
+<%= ol_inset_list @posts.map{|x| link_to(x.title, post_path(x))} %>
+<br />
+<p>Set data-theme='b'</p>
+<%= ol_inset_list @posts.map{|x| link_to(x.title, post_path(x))}, {'data-theme' => "a"} %>
+<br /><br />
+
+
+<br /><br />
 <%= link_to 'New Post', new_post_path %>
+
