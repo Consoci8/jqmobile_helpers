@@ -140,6 +140,13 @@
 <%= search_button_link 'search', buttons_path, {'data-theme' => 'b', 'data-iconpos' => 'notext'} %>
 <br/>
 
+<h4>Inline Button</h4>
+<p>data-inline="true", data-role="controlgroup", data-type="horizontal" are default</p>
+<%= inline_button("
+    #{home_button_link('home', buttons_path, 'data-iconpos' => 'right')}
+    #{refresh_button_link 'refresh', buttons_path}") %>
+<br/>
+
 <h4>Grouped Button</h4>
 <p>data-role ="controlgroup" is default</p>
 <%= group_button("
