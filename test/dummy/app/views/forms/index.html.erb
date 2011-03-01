@@ -2,4 +2,6 @@
  <h1>Forms Helper</h1>
 <% end %>
 
-<%= link_to 'New Post', new_post_path %>
+<%= basic_list @posts.map{|x| link_to(x.title, form_path(x))} %>
+
+<%= link_to 'New Post', new_form_path %>
