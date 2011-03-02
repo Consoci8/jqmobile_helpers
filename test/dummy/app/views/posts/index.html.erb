@@ -88,4 +88,20 @@
 <%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}, {'data-theme' => "d"}) %>
 
 <br /><br />
+
+<h2>List Formatting</h2>
+
+<%= list_formatting(@posts.map do |x| [x.created_at, link_to(x.title, post_path(x))] end) %>
+
+<br /><br />
+
+<h2>List Divider</h2>
+
+<%= list_divider(@posts.map do |x|
+	[x.created_at, link_to(x.title, post_path(x))]
+end) %>
+
+<br /><br />
+
+
 <%= link_to 'New Post', new_post_path %>
