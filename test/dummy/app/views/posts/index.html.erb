@@ -92,15 +92,13 @@
 
 <h2>List Formatting</h2>
 
-<%= list_formatting(@posts.map do |x| [x.created_at, link_to(x.title, post_path(x))] end) %>
+<%= list_formatting(@posts.map{|x| x.created_at.strftime('%a, %d/%m/%y')})  %>
 
 <br /><br />
 
 <h2>List Divider</h2>
 
-<%= list_divider(@posts.map do |x|
-	[x.created_at, link_to(x.title, post_path(x))]
-end) %>
+<%= list_divider @posts.map{|x| x.created_at} %>
 
 <br /><br />
 

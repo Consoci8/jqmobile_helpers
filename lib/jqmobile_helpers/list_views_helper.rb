@@ -238,12 +238,8 @@ module JqmobileHelpers
       def list_formatting(collection, options = {})
         html_attributes_options(options)
         #html_li_attributes_options(options)
-        list = collection.map do |item|
-            if item.is_a?(Array)
-                content_tag("<li data-role=list-divider>#{item[0]}<span class=ui-li-count>#{item[1]}</span>", content_tag("li", item))
-            end
-          end
-        content_tag(:ul, list, self.default_options)
+        list = collection.map{|item| content_tag(:li, content_tag("li", item), {'data-role' => 'list-divider'})}
+        content_tag(:ul, list.join.html_safe, self.default_options)
       end
       
       # ====================================== LIST DIVIDER ===========================================================
@@ -263,7 +259,7 @@ module JqmobileHelpers
       def list_divider(collection, options = {})
         html_attributes_options(options)
         #html_li_attributes_options(options)
-        list = collection.map{|item| content_tag(:li, content_tag("li", item), {'data-role' => 'list-divider', 'span' => 'ui-li-count'})}
+        list = collection.map{|item| content_tag(:li, content_tag("li", item), {'data-role' => 'list-divider'})}
         content_tag(:ul, list.join.html_safe, self.default_options)
       end
 
@@ -315,17 +311,13 @@ module JqmobileHelpers
         if html_options.has_key?('data-transition')
           self.default_options = default_options.merge({'data-transition' => html_options['data-transition']})
         end
-<<<<<<< HEAD
   
       end
       
       def html_li_attributes_options(options)
         html_options = options.stringify_keys!
         self.li_options = {'data-role' => "list-divider"}
-=======
 
-
->>>>>>> develop
       end
 
   end
