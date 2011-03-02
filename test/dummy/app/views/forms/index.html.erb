@@ -1,0 +1,7 @@
+<% content_for :header do %>
+ <h1>Forms Helper</h1>
+<% end %>
+
+<%= basic_list @posts.map{|x| link_to(x.title, form_path(x))} %>
+
+<%= link_to 'New Post', new_form_path %>
