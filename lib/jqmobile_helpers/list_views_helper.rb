@@ -235,17 +235,11 @@ module JqmobileHelpers
       #             </li>
       #           </ul> 
       #
-      def list_formatting(collection, collection3, options = {})
+      def list_formatting(collection, options = {})
         html_attributes_options(options)
         #html_li_attributes_options(options)
-        divider =collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << collection3.map{|item| content_tag("li",item)}}  
+        divider =collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << collection.map{|item| content_tag("li",item)}}  
         content_tag(:ul, divider.join.html_safe, self.default_options)
-      end
-      
-      
-      def content_list(collection)
-          listing = collection.map{|item| item}
-          content_tag(:li, listing.join.html_safe)
       end
 
       
@@ -263,10 +257,10 @@ module JqmobileHelpers
       #             </li>
       #           </ul> 
       #
-      def list_divider(collection, options = {})
+      def list_divider(collection, collection1, options = {})
         html_attributes_options(options)
         #html_li_attributes_options(options)
-        list = collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'})} << content_tag("li", collection.map{|x| x})
+        list = collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << content_tag("li", collection1.map{|x| x})} 
         content_tag(:ul, list.join.html_safe, self.default_options)
       end
 

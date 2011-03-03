@@ -93,14 +93,14 @@
 <h2>List Formatting</h2>
 
 
-<%= list_formatting @posts.map{|x| x.title}, @posts.map{|s| s.title} %>
+<%= list_formatting @posts.map{|x| x.title} %>
 
 
 <br /><br />
 
 <h2>List Divider</h2>
 
-<%= list_divider @posts.map{|x| x.title} %>
+<%= list_divider @posts.map{|x| x.title[0]}.sort, @posts.map{|c| c.title} %>
 
 <br /><br />
 
