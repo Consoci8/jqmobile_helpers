@@ -235,12 +235,19 @@ module JqmobileHelpers
       #             </li>
       #           </ul> 
       #
-      def list_formatting(collection, options = {})
+      def list_formatting(collection, collection3, options = {})
         html_attributes_options(options)
         #html_li_attributes_options(options)
-        list = collection.map{|item| content_tag(:li, content_tag("li", item), {'data-role' => 'list-divider'})}
-        content_tag(:ul, list.join.html_safe, self.default_options)
+        divider =collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << collection3.map{|item| content_tag("li",item)}}  
+        content_tag(:ul, divider.join.html_safe, self.default_options)
       end
+      
+      
+      def content_list(collection)
+          listing = collection.map{|item| item}
+          content_tag(:li, listing.join.html_safe)
+      end
+
       
       # ====================================== LIST DIVIDER ===========================================================
       # jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature. 
@@ -259,7 +266,7 @@ module JqmobileHelpers
       def list_divider(collection, options = {})
         html_attributes_options(options)
         #html_li_attributes_options(options)
-        list = collection.map{|item| content_tag(:li, content_tag("li", item), {'data-role' => 'list-divider'})}
+        list = collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'})} << content_tag("li", collection.map{|x| x})
         content_tag(:ul, list.join.html_safe, self.default_options)
       end
 
