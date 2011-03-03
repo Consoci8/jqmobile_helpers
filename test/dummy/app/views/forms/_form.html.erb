@@ -1,4 +1,4 @@
-<%= form_for(@post) do |f| %>
+<%= jq_form_for(@post, :url => forms_path) do |f| %>
 
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -12,8 +12,7 @@
     </div>
   <% end %>
 
-  <%= f.text_field :name, :required => true,
-        :description => "Something Italian, please."%>
+  <%= f.text_field :name %>
   
   <%= f.text_field :title %>
   <%= f.text_area :content %>

@@ -55,6 +55,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mocha (0.9.10)
+      rake
     nokogiri (1.4.4)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -97,5 +99,6 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (>= 0.4.0)
+  mocha
   rails (= 3.0.3)
   sqlite3-ruby
