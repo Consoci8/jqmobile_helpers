@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ToolbarsHelperTest < ActiveSupport::TestCase
   include JqmobileHelpers::ToolbarsHelper
+  include UrlHelper
   
   test "header toolbar title" do
     toolbar_title = header_toolbar_title('sazlin')
@@ -14,8 +15,9 @@ class ToolbarsHelperTest < ActiveSupport::TestCase
   end
 
   test "navbar bar container with navbar link" do
-    navbar = navbar_bar([navbar_link('list view','http://localhost:3000/',{'data-theme' => 'c','data-icon' => 'gear', 'class' => 'ui-btn-active'})])
-    assert_equal "<div data-role=\"navbar\"><ul><li><a class=\"ui-btn-active\" data-icon=\"gear\" data-theme=\"c\" href=\"http://localhost:3000/\">list view</a></li></ul></div>", navbar
+    #controller.request.fullpath = '/posts'
+    navbar = navbar_bar([navbar_link('list view','http://localhost:3000/posts',{'data-theme' => 'c','data-icon' => 'gear'})])
+    assert_equal "<div data-role=\"navbar\"><ul><li><a class=\"ui-btn-active\" data-icon=\"gear\" data-theme=\"c\" href=\"http://localhost:3000/posts\">list view</a></li></ul></div>", navbar
   end
 
 end

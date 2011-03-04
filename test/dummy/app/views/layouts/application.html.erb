@@ -12,18 +12,17 @@
   <div data-role="page">
 
       <!-- header part -->
-      <div data-role="header" data-position="fixed" data-backbtn="true">
+      <div data-role="header" data-position="inline" data-backbtn="true">
 
 	<%= header_toolbar_title('EW CORE') %>
         <%= header_toolbar_link('Toolbar',toolbars_path, {'data-icon'=>"gear", 'data-iconpos' => 'notext', 'data-theme' => 'c'}) %>
         <%= header_toolbar_link('Homies',root_path, {'data-icon'=>"check", 'data-theme'=>'b'}) %>
 
 
-
         <%#= navbar_bar %>
 
         <%#*<div data-role="navbar">%>
-          <%= navbar_bar([navbar_link('list view',root_path,{'data-icon' => 'gear','data-theme' => 'c', 'class' => 'ui-btn-active'}),navbar_link('button view',buttons_path,{'data-icon' => 'gear'}),navbar_link('toolbar view',toolbars_path,{'data-icon' => 'home'})]) %>
+          <%= navbar_bar([navbar_link('list view',posts_path,{'data-icon' => 'gear'}),navbar_link('button view',buttons_path,{'data-icon' => 'gear'}),navbar_link('toolbar view',toolbars_path,{'data-icon' => 'home'})]) %>
           
 <%#*</div><!-- /navbar -->%>
         
@@ -32,6 +31,9 @@
       <!-- end header part -->
 
 	<div data-role="content">
+          <% page = request.fullpath %>
+       <% page_url = page.split(/[0-9]/)[0].gsub('/',"") %>
+<p>testing</p><%= page_url %>
       <%= yield %>
 	</div>
 	
