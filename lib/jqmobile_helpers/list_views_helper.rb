@@ -220,7 +220,7 @@ module JqmobileHelpers
         content_tag(:ul, list.join.html_safe, default_options.update('data-filter' => 'true', 'data-inset' => 'false'))
       end
 
-    
+
       # ====================================== LIST FORMATTING LIST ===========================================================
       # The framework includes text formatting conventions for common list patterns like header/descriptions, secondary information, counts through HTML semantic markup.
       # To add a count indicator to the right of the list item, wrap the number in an element with a class of ui-li-count
@@ -228,26 +228,35 @@ module JqmobileHelpers
       # Supplemental information can be added to the right of each list item by wrapping content in an element with a class of ui-li-aside
       #
       # ==== Examples
-      #      <%= list_formatting @posts.map{|x| x.title} %> 
-			#       =>  <ul data-role="listview">
-			#             <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
-			#             <li>
-			#               <h3><a href="index.html">Stephen Weber</a></h3>
-			#               <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
-			#               <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
-			#               <p class="ui-li-aside"><strong>6:24</strong>PM</p>
-			#             </li>
+      #       <ul data-role="listview">
+      #         <% @posts.each do |post| %>
+      #           <%= list_formatting(post.created_at, post.name, post.title, post.content) %>
+      #         <% end %>
+      #       </ul>
+      #      # => <ul data-role="listview">
+      #            <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
+			#            <li>
+			#            	 <h3><a href="index.html">Stephen Weber</a></h3>
+			#            	 <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+			#            	 <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+			#            	 <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+			#            </li>
+			#            <li>
+			#            	 <h3><a href="index.html">jQuery Team</a></h3>
+			#            	 <p><strong>Boston Conference Planning</strong></p>
+			#            	 <p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+			#            	 <p class="ui-li-aside"><strong>9:18</strong>AM</p>
+			#            </li>
 			#           </ul>
       #
-      def list_formatting(collection, options = {})
+      def list_formatting(created, name, title, content, options = {})
         html_attributes_options(options)
-        #html_li_attributes_options(options)
-        divider =collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << collection.map{|item| content_tag("li",item)}}  
-        group = divider.group_by
-        content_tag(:ul, group, self.default_options)
+        li_default_options = {'data-role'=>"list-divider"}
+        content_tag("li", created, li_default_options) <<
+        content_tag("li", "<h3>#{name}</h3><p><strong>#{title}</strong></p><p>#{content}</p>".html_safe)
       end
 
-      
+
       # ====================================== LIST DIVIDER ===========================================================
       # List items can be turned into dividers to organize and group the list items. 
       # This is done by adding the data-role="list-divider" to any list item. 
@@ -280,22 +289,11 @@ module JqmobileHelpers
       #  #list = collection.group_by{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << content_tag("li", collection.map{|x| x})}
       #  content_tag(:ul, list, self.default_options)
       #end
-      
-      def list_divider(collection, options = {})
+      def list_divider(collection, collection1, options = {})
         html_attributes_options(options)
         #html_li_attributes_options(options)
-        #list = collection.group_by{|item| content_tag(:li, item, {'data-role' => 'list-divider'})} 
-        #content_tag(:ul, list, self.default_options)
-        content_tag(:ul, {'data-role' => 'listview'}) do 
-          collection.collect do |group|
-            content_tag(:li, group, {'data-role' => 'list-divider'}) do 
-              collection.collect do |item|
-                content_tag(:li, item)
-              end
-            end
-          end
-        end
-           
+        list = collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << content_tag("li", collection1.map{|x| x})}
+        content_tag(:ul, list.join.html_safe, self.default_options)
       end
 
     # ====================================== INSET LIST ===========================================================
@@ -346,9 +344,9 @@ module JqmobileHelpers
         if html_options.has_key?('data-transition')
           self.default_options = default_options.merge({'data-transition' => html_options['data-transition']})
         end
-  
+
       end
-      
+
       def html_li_attributes_options(options)
         html_options = options.stringify_keys!
         self.li_options = {'data-role' => "list-divider"}
