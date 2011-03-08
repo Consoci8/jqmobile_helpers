@@ -1,14 +1,15 @@
-module JqmobileHelper
+module JqmobileHelpers
   # = JqmobileHelpers Form Helper
   # 
   # Credits to https://github.com/alexreisner for his Informant formbuilder
   # 
   # Provides a set of helper methods for jquery-mobile form elements
   # 
-  # Displays fields in a div tag, label on one line, field below it.
+  # Displays rails helpers fields within a div tag, label on one line, field below it.
   # Simplify your form code by encapsulating all
   # aspects of a field (label, description, etc) in a single method call. 
   #
+  # All field methods accept an options hash like the standard Rails FormBuilder methods
   class FormBuilder < ActionView::Helpers::FormBuilder
     # Declare some options as custom (don't pass to built-in form helpers).
     @@custom_field_options = [:label, :required, :description, :decoration]
@@ -17,6 +18,7 @@ module JqmobileHelper
     @@custom_options = @@custom_field_options + @@custom_label_options
 
     # Run already-defined helpers through our "shell".
+    # See ActionView::Helpers::FormBuilder.field_helpers
     helpers = field_helpers +
       %w(select time_zone_select date_select) -
       %w(hidden_field fields_for label)
@@ -38,7 +40,7 @@ module JqmobileHelper
     end
 
     # Render a set of radio buttons. Takes a method name, an array of
-    # choices (just like a +select+ field), and an Informant options hash.
+    # choices (just like a +select+ field), and an options hash.
     #
     def radio_buttons(method, choices, options = {})
       choices.map!{ |i| i.is_a?(Array) ? i : [i] }
@@ -50,7 +52,7 @@ module JqmobileHelper
 
     # Render a set of check boxes for selecting HABTM-associated objects.
     # Takes a method name (eg, category_ids), an array of
-    # choices (just like a +select+ field), and an Informant options hash.
+    # choices (just like a +select+ field), and an options hash.
     # In the default template the check boxes are enclosed in a <div> with
     # CSS class <tt>habtm_check_boxes</tt> which can be styled thusly to
     # achieve a scrolling list:
@@ -69,8 +71,11 @@ module JqmobileHelper
     # Unfortunately the check_box template is not applied to each check box
     # (because the standard method of querying the @object for the field's
     # value does not work--ie, there is no "categories[]" method).
+    # 
+    # ==== Examples
+    # <%= f.habtm_check_boxes :feature_ids,Feature.all.map{ |m| [m.name, m.id] } %>
     #
-    def habtm_check_boxes(method, choices, options = {})
+    def habtm_check_boxes(method, choices, options = {}) #:nodoc:
       choices.map!{ |i| i.is_a?(Array) ? i : [i] }
       base_id   = "#{object_name}_#{method}"
       base_name = "#{object_name}[#{method}]"
@@ -146,7 +151,6 @@ module JqmobileHelper
 		  select method, choices, options
     end
 
-    ##
     # Submit button with smart default text (if +value+ is nil uses "Create"
     # for new record or "Update" for old record).
     #
@@ -155,7 +159,6 @@ module JqmobileHelper
       build_shell(value, options, 'submit_button') { super }
     end
 
-    ##
     # Render a field label.
     #
     def label(method, text = nil, options = {})
@@ -183,8 +186,7 @@ module JqmobileHelper
         @template.capture(&block)
       end
     end
-
-
+    
     private # ---------------------------------------------------------------
 
     # Insert a field into its HTML "shell".
@@ -212,8 +214,31 @@ module JqmobileHelper
       send("#{template}_template", locals).html_safe
     end
 
-    ##
-    # Render default field template.
+    # Render default field template for all the following field methods:
+    # "fields_for", "label", "text_field", "password_field", "hidden_field", "file_field", "text_area", 
+    # "search_field", "telephone_field", "phone_field", "url_field", 
+    # "email_field", "number_field", "range_field"
+    # 
+    # ==== Examples
+    #   <%= jq_form_for(@post) do |f| %>
+    #     <%= f.text_field :name %>
+    #   <% end %>
+    #
+    #   #  =>(Ommiting form_for results)
+    #   <div data-role="fieldcontain" id="post_name_field" class="field"> 
+    #	    label for="post_name">Name</label><br /> 
+    #     <input id="post_name" name="post[name]" size="30" type="text" /> 
+    #	  </div>
+    #  
+    # You can pass a few other options for your input fields.
+    # 
+    # ==== Examples
+    #   <%= f.text_field :name, :description => "Fill in your name", :required => true,
+    #       :label => "Your Name", :decoration => 'basically a field' %>
+    #   # => <div data-role="fieldcontain" id="post_name_field" class="field"> 
+    #	    label for="post_name">Your Name<span class="required">*</span></label><br /> 
+    #     <input id="post_name" name="post[name]" size="30" type="text" />basically a field
+    #	  </div>
     #
     def default_field_template(l = {})
       <<-END
@@ -225,7 +250,6 @@ module JqmobileHelper
 	    END
     end
 
-    ##
     # Render check box field template.
     #
     def check_box_field_template(l = {})
@@ -237,7 +261,6 @@ module JqmobileHelper
 	    END
     end
 
-    ##
     # Render single radio button. Note that this is the only field
     # template without an enclosing <tt><div class="field"></tt> because it
     # is intended for use only within the radio_buttons_template (plural).
@@ -248,14 +271,12 @@ module JqmobileHelper
 	    END
     end
 
-    ##
     # Render a group of radio buttons.
     #
     def radio_buttons_field_template(l = {})
       default_field_template(l)
     end
 
-    ##
     # Render a group of HABTM check boxes.
     #
     def habtm_check_boxes_field_template(l = {})
@@ -268,7 +289,6 @@ module JqmobileHelper
 	    END
     end
 
-    ##
     # Render submit button template.
     #
     def submit_button_template(l = {})
