@@ -222,46 +222,80 @@ module JqmobileHelpers
 
     
       # ====================================== LIST FORMATTING LIST ===========================================================
-      # jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature. 
-      # To make a list filterable, simply add the data-filter="true" attribute to the list. 
-      # The framework will then append a search box above the list 
-      # and add the behavior to filter out list items that don't contain the current search string as the user types.
+      # The framework includes text formatting conventions for common list patterns like header/descriptions, secondary information, counts through HTML semantic markup.
+      # To add a count indicator to the right of the list item, wrap the number in an element with a class of ui-li-count
+      # To add text hierarchy, use headings to increase font emphasis and use paragraphs to reduce emphasis.
+      # Supplemental information can be added to the right of each list item by wrapping content in an element with a class of ui-li-aside
       #
       # ==== Examples
-      #      <%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}) %> 
-      #      # => <ul data-inset="false" data-role="listview" data-filter="true">
-      #             <li>          
-      #               <a href="/posts/1">Title 1</a></h3><p>Title 1</p>
-      #             </li>
-      #           </ul> 
+      #      <%= list_formatting @posts.map{|x| x.title} %> 
+			#       =>  <ul data-role="listview">
+			#             <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
+			#             <li>
+			#               <h3><a href="index.html">Stephen Weber</a></h3>
+			#               <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+			#               <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+			#               <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+			#             </li>
+			#           </ul>
       #
       def list_formatting(collection, options = {})
         html_attributes_options(options)
         #html_li_attributes_options(options)
         divider =collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << collection.map{|item| content_tag("li",item)}}  
-        content_tag(:ul, divider.join.html_safe, self.default_options)
+        group = divider.group_by
+        content_tag(:ul, group, self.default_options)
       end
 
       
       # ====================================== LIST DIVIDER ===========================================================
-      # jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature. 
-      # To make a list filterable, simply add the data-filter="true" attribute to the list. 
-      # The framework will then append a search box above the list 
-      # and add the behavior to filter out list items that don't contain the current search string as the user types.
+      # List items can be turned into dividers to organize and group the list items. 
+      # This is done by adding the data-role="list-divider" to any list item. 
+      # These items are styled with the body swatch "b" by default (light gray in the default theme) 
+      # but you can specify a theme for dividers by adding the data-groupingtheme attribute and specifying a theme swatch letter.
       #
       # ==== Examples
-      #      <%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}) %> 
-      #      # => <ul data-inset="false" data-role="listview" data-filter="true">
-      #             <li>          
-      #               <a href="/posts/1">Title 1</a></h3><p>Title 1</p>
-      #             </li>
-      #           </ul> 
-      #
-      def list_divider(collection, collection1, options = {})
+      #      <% list_divider @posts.group_by.each do |post| %>
+      #	        <%= post.title[0] %>
+      #	        <% post.each do |p| %>
+      #		        <%= p.title %>
+      #	        <% end %>
+      #      <% end %>
+      #      # => <ul data-role="listview">
+			#             <li data-role="list-divider">A</li>
+			#               <li><a href="index.html">Adam Kinkaid</a></li>
+			#               <li><a href="index.html">Alex Wickerham</a></li>
+			#               <li><a href="index.html">Avery Johnson</a></li>
+			#             <li data-role="list-divider">B</li>
+			#               <li><a href="index.html">Bob Cabot</a></li>
+			#           </ul>
+
+
+      #def list_divider(collection, options = {})
+      #  html_attributes_options(options)
+      #  #html_li_attributes_options(options)
+      #  list = collection.group_by do |alphabet|
+      #          content_tag("li", alphabet, {'data-role' => 'list-divider'}) << content_tag("li", alphabet)
+      #        end
+      #  #list = collection.group_by{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << content_tag("li", collection.map{|x| x})}
+      #  content_tag(:ul, list, self.default_options)
+      #end
+      
+      def list_divider(collection, options = {})
         html_attributes_options(options)
         #html_li_attributes_options(options)
-        list = collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << content_tag("li", collection1.map{|x| x})} 
-        content_tag(:ul, list.join.html_safe, self.default_options)
+        #list = collection.group_by{|item| content_tag(:li, item, {'data-role' => 'list-divider'})} 
+        #content_tag(:ul, list, self.default_options)
+        content_tag(:ul, {'data-role' => 'listview'}) do 
+          collection.collect do |group|
+            content_tag(:li, group, {'data-role' => 'list-divider'}) do 
+              collection.collect do |item|
+                content_tag(:li, item)
+              end
+            end
+          end
+        end
+           
       end
 
     # ====================================== INSET LIST ===========================================================

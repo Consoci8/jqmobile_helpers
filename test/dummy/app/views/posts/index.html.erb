@@ -100,7 +100,11 @@
 
 <h2>List Divider</h2>
 
-<%= list_divider @posts.map{|x| x.title[0]}.sort, @posts.map{|c| c.title} %>
+<%#= list_divider @posts.group_by{|x| x.title[0]}.sort %>
+
+
+<%= list_divider(@posts.collect do |group|
+	(group.title do |x| x.title end) end) %>
 
 <br /><br />
 
