@@ -92,11 +92,16 @@
 
 <h2>List Formatting</h2>
 
+<br />
+<ul data-role="listview">
+<% @posts.each do |post| %>
+<%= list_formatting(post.created_at, post.name, post.title, post.content) %>
+<% end %>
+</ul>
 
-<%= list_formatting @posts.map{|x| x.title}, @posts.map{|s| s.title} %>
 
-
-<br /><br />
+<br />
+<br />
 
 <h2>List Divider</h2>
 

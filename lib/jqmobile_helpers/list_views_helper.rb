@@ -220,48 +220,52 @@ module JqmobileHelpers
         content_tag(:ul, list.join.html_safe, default_options.update('data-filter' => 'true', 'data-inset' => 'false'))
       end
 
-    
+
       # ====================================== LIST FORMATTING LIST ===========================================================
-      # jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature. 
-      # To make a list filterable, simply add the data-filter="true" attribute to the list. 
-      # The framework will then append a search box above the list 
-      # and add the behavior to filter out list items that don't contain the current search string as the user types.
       #
       # ==== Examples
-      #      <%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}) %> 
-      #      # => <ul data-inset="false" data-role="listview" data-filter="true">
-      #             <li>          
-      #               <a href="/posts/1">Title 1</a></h3><p>Title 1</p>
-      #             </li>
-      #           </ul> 
+      #       <ul data-role="listview">
+      #         <% @posts.each do |post| %>
+      #           <%= list_formatting(post.created_at, post.name, post.title, post.content) %>
+      #         <% end %>
+      #       </ul>
+      #      # => <ul data-role="listview">
+      #            <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
+			#            <li>
+			#            	 <h3><a href="index.html">Stephen Weber</a></h3>
+			#            	 <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+			#            	 <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
+			#            	 <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+			#            </li>
+			#            <li>
+			#            	 <h3><a href="index.html">jQuery Team</a></h3>
+			#            	 <p><strong>Boston Conference Planning</strong></p>
+			#            	 <p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
+			#            	 <p class="ui-li-aside"><strong>9:18</strong>AM</p>
+			#            </li>
+			#           </ul>
       #
-      def list_formatting(collection, collection3, options = {})
+      def list_formatting(created, name, title, content, options = {})
         html_attributes_options(options)
-        #html_li_attributes_options(options)
-        divider =collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << collection3.map{|item| content_tag("li",item)}}  
-        content_tag(:ul, divider.join.html_safe, self.default_options)
-      end
-      
-      
-      def content_list(collection)
-          listing = collection.map{|item| item}
-          content_tag(:li, listing.join.html_safe)
+        li_default_options = {'data-role'=>"list-divider"}
+        content_tag("li", created, li_default_options) <<
+        content_tag("li", "<h3>#{name}</h3><p><strong>#{title}</strong></p><p>#{content}</p>".html_safe)
       end
 
-      
+
       # ====================================== LIST DIVIDER ===========================================================
-      # jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature. 
-      # To make a list filterable, simply add the data-filter="true" attribute to the list. 
-      # The framework will then append a search box above the list 
+      # jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature.
+      # To make a list filterable, simply add the data-filter="true" attribute to the list.
+      # The framework will then append a search box above the list
       # and add the behavior to filter out list items that don't contain the current search string as the user types.
       #
       # ==== Examples
-      #      <%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}) %> 
+      #      <%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}) %>
       #      # => <ul data-inset="false" data-role="listview" data-filter="true">
-      #             <li>          
+      #             <li>
       #               <a href="/posts/1">Title 1</a></h3><p>Title 1</p>
       #             </li>
-      #           </ul> 
+      #           </ul>
       #
       def list_divider(collection, options = {})
         html_attributes_options(options)
@@ -318,9 +322,9 @@ module JqmobileHelpers
         if html_options.has_key?('data-transition')
           self.default_options = default_options.merge({'data-transition' => html_options['data-transition']})
         end
-  
+
       end
-      
+
       def html_li_attributes_options(options)
         html_options = options.stringify_keys!
         self.li_options = {'data-role' => "list-divider"}
