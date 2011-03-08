@@ -267,10 +267,10 @@ module JqmobileHelpers
       #             </li>
       #           </ul>
       #
-      def list_divider(collection, options = {})
+      def list_divider(collection, collection1, options = {})
         html_attributes_options(options)
         #html_li_attributes_options(options)
-        list = collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'})} << content_tag("li", collection.map{|x| x})
+        list = collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << content_tag("li", collection1.map{|x| x})}
         content_tag(:ul, list.join.html_safe, self.default_options)
       end
 

@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: JqmobileHelpers::FormBuilder</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/jqmobile_helpers/form_builder_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/jqmobile_helpers/form_builder.rb">lib/jqmobile_helpers/form_builder.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">ActionView::Helpers::FormBuilder</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-check_box_field_template">#check_box_field_template</a></li>
+					
+					<li><a href="#method-i-date_select">#date_select</a></li>
+					
+					<li><a href="#method-i-default_field_template">#default_field_template</a></li>
+					
+					<li><a href="#method-i-field_set">#field_set</a></li>
+					
+					<li><a href="#method-i-habtm_check_boxes_field_template">#habtm_check_boxes_field_template</a></li>
+					
+					<li><a href="#method-i-integer_select">#integer_select</a></li>
+					
+					<li><a href="#method-i-label">#label</a></li>
+					
+					<li><a href="#method-i-multipart_date_select">#multipart_date_select</a></li>
+					
+					<li><a href="#method-i-radio_button_choice_template">#radio_button_choice_template</a></li>
+					
+					<li><a href="#method-i-radio_buttons">#radio_buttons</a></li>
+					
+					<li><a href="#method-i-radio_buttons_field_template">#radio_buttons_field_template</a></li>
+					
+					<li><a href="#method-i-submit">#submit</a></li>
+					
+					<li><a href="#method-i-submit_button_template">#submit_button_template</a></li>
+					
+					<li><a href="#method-i-year_select">#year_select</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../JqmobileHelpers.html">JqmobileHelpers</a></li>
+				
+					<li><a href="../JqmobileHelpers/ActionViewExtensions.html">JqmobileHelpers::ActionViewExtensions</a></li>
+				
+					<li><a href="../JqmobileHelpers/ActionViewExtensions/FormHelper.html">JqmobileHelpers::ActionViewExtensions::FormHelper</a></li>
+				
+					<li><a href="../JqmobileHelpers/ButtonsHelper.html">JqmobileHelpers::ButtonsHelper</a></li>
+				
+					<li><a href="../JqmobileHelpers/FormBuilder.html">JqmobileHelpers::FormBuilder</a></li>
+				
+					<li><a href="../JqmobileHelpers/ListViewsHelper.html">JqmobileHelpers::ListViewsHelper</a></li>
+				
+					<li><a href="../JqmobileHelpers/Railtie.html">JqmobileHelpers::Railtie</a></li>
+				
+					<li><a href="../JqmobileHelpers/ToolbarsHelper.html">JqmobileHelpers::ToolbarsHelper</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">JqmobileHelpers::FormBuilder</h1>
+
+		<div id="description">
+			<h1><a href="../JqmobileHelpers.html">JqmobileHelpers</a> Form Helper</h1>
+<p>
+Credits to <a
+href="https://github.com/alexreisner">github.com/alexreisner</a> for his
+Informant formbuilder
+</p>
+<p>
+Provides a set of helper methods for jquery-mobile form elements
+</p>
+<p>
+Displays rails helpers fields within a div tag, label on one line, field
+below it. Simplify your form code by encapsulating all aspects of a field
+(label, description, etc) in a single method call. 
+</p>
+<p>
+All field methods accept an options hash like the standard Rails <a
+href="FormBuilder.html">FormBuilder</a> methods
+</p>
+
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="date-select-method" class="method-detail ">
+				<a name="method-i-date_select"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">date_select</span><span
+						class="method-args">(method, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Standard Rails date selector.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="date-select-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 101</span>
+101:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">date_select</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">options</span> = {})
+102:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:include_blank</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
+103:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:start_year</span>]    <span class="ruby-operator">||=</span> <span class="ruby-value">1801</span>
+104:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:end_year</span>]      <span class="ruby-operator">||=</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">year</span>
+105:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:label_for</span>]       = <span class="ruby-node">&quot;#{object_name}_#{method}_1i&quot;</span>
+106:                   <span class="ruby-identifier">build_shell</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">options</span>) { <span class="ruby-keyword kw">super</span> }
+107:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="field-set-method" class="method-detail ">
+				<a name="method-i-field_set"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">field_set</span><span
+						class="method-args">(legend = nil, options = nil, &block)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Render a field set (HTML fieldset tag). Takes the legend (optional), an
+options hash, and a block in which fields are rendered.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="field-set-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 183</span>
+183:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">field_set</span>(<span class="ruby-identifier">legend</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword kw">nil</span>, &amp;<span class="ruby-identifier">block</span>)
+184:       <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:fieldset</span>, <span class="ruby-identifier">options</span>) <span class="ruby-keyword kw">do</span>
+185:         (<span class="ruby-identifier">legend</span>.<span class="ruby-identifier">blank?</span><span class="ruby-operator">?</span> <span class="ruby-value str">&quot;&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:legend</span>, <span class="ruby-identifier">legend</span>)) <span class="ruby-operator">+</span>
+186:         <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">capture</span>(&amp;<span class="ruby-identifier">block</span>)
+187:       <span class="ruby-keyword kw">end</span>
+188:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="integer-select-method" class="method-detail ">
+				<a name="method-i-integer_select"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">integer_select</span><span
+						class="method-args">(method, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Integer select field. Takes options <tt>:first</tt>, <tt>:last</tt>, and
+<tt>:step</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="integer-select-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 144</span>
+144:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">integer_select</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">options</span> = {})
+145:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:step</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">1</span>
+146:       <span class="ruby-identifier">choices</span> = []; <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+147:       (<span class="ruby-identifier">options</span>[<span class="ruby-value">:first</span>]<span class="ruby-operator">..</span><span class="ruby-identifier">options</span>[<span class="ruby-value">:last</span>]).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+148:         <span class="ruby-identifier">choices</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">n</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:step</span>] <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+149:         <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+150:       <span class="ruby-keyword kw">end</span>
+151:                   <span class="ruby-identifier">select</span> <span class="ruby-identifier">method</span>, <span class="ruby-identifier">choices</span>, <span class="ruby-identifier">options</span>
+152:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="label-method" class="method-detail ">
+				<a name="method-i-label"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">label</span><span
+						class="method-args">(method, text = nil, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Render a field label.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="label-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 164</span>
+164:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">label</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">text</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">options</span> = {})
+165:       <span class="ruby-identifier">colon</span> = <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:colon</span>].<span class="ruby-identifier">nil?</span>
+166:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:for</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:label_for</span>]
+167:       <span class="ruby-identifier">required</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:required</span>]
+168: 
+169:       <span class="ruby-comment cmt"># remove special options</span>
+170:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:colon</span>
+171:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:label_for</span>
+172:       <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span> <span class="ruby-value">:required</span>
+173: 
+174:       <span class="ruby-identifier">text</span> = <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:h</span>, <span class="ruby-identifier">text</span>.<span class="ruby-identifier">blank?</span><span class="ruby-operator">?</span> <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">humanize</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>)
+175:       <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">':'</span>.<span class="ruby-identifier">html_safe</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">colon</span>
+176:       <span class="ruby-identifier">text</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:span</span>, <span class="ruby-value str">&quot;*&quot;</span>, <span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;required&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">required</span>
+177:       <span class="ruby-keyword kw">super</span>
+178:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="multipart-date-select-method" class="method-detail ">
+				<a name="method-i-multipart_date_select"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">multipart_date_select</span><span
+						class="method-args">(method, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+This differs from the Rails-default <a
+href="FormBuilder.html#method-i-date_select">date_select</a> in that it
+submits three distinct fields for storage in three separate attributes.
+This allows for partial dates (eg, &#8220;1984&#8221; or &#8220;October
+1984&#8221;). See <a
+href="http://github.com/alexreisner/flex_date">FlexDate</a> for storing and
+manipulating partial dates.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="multipart-date-select-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 116</span>
+116:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">multipart_date_select</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">options</span> = {})
+117:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:include_blank</span>] <span class="ruby-operator">||=</span> <span class="ruby-keyword kw">false</span>
+118:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:start_year</span>]    <span class="ruby-operator">||=</span> <span class="ruby-value">1801</span>
+119:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:end_year</span>]      <span class="ruby-operator">||=</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">year</span>
+120:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:prefix</span>]          = <span class="ruby-identifier">object_name</span> <span class="ruby-comment cmt"># for date helpers</span>
+121:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:label_for</span>]       = <span class="ruby-node">&quot;#{object_name}_#{method}_y&quot;</span>
+122:                   <span class="ruby-identifier">build_shell</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">options</span>) <span class="ruby-keyword kw">do</span>
+123:         [[<span class="ruby-value str">'y'</span>, <span class="ruby-value str">'year'</span>], [<span class="ruby-value str">'m'</span>, <span class="ruby-value str">'month'</span>], [<span class="ruby-value str">'d'</span>, <span class="ruby-value str">'day'</span>]].<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+124:           <span class="ruby-identifier">i</span>,<span class="ruby-identifier">j</span> = <span class="ruby-identifier">p</span>
+125:           <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@object</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'_'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">i</span>)
+126:           <span class="ruby-identifier">options</span>[<span class="ruby-value">:field_name</span>] = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'_'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">i</span>
+127:           <span class="ruby-identifier">eval</span>(<span class="ruby-node">&quot;@template.select_#{j}(#{value.inspect}, options)&quot;</span>)
+128:         }.<span class="ruby-identifier">join</span>(<span class="ruby-value str">' '</span>)
+129:                   <span class="ruby-keyword kw">end</span>
+130:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="radio-buttons-method" class="method-detail ">
+				<a name="method-i-radio_buttons"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">radio_buttons</span><span
+						class="method-args">(method, choices, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Render a set of radio buttons. Takes a method name, an array of choices
+(just like a <tt>select</tt> field), and an options hash.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="radio-buttons-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 45</span>
+45:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">radio_buttons</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">choices</span>, <span class="ruby-identifier">options</span> = {})
+46:       <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">map!</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">:</span> [<span class="ruby-identifier">i</span>] }
+47:       <span class="ruby-identifier">build_shell</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">options</span>, <span class="ruby-value str">&quot;radio_buttons_field&quot;</span>) <span class="ruby-keyword kw">do</span>
+48:         <span class="ruby-identifier">choices</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">radio_button</span> <span class="ruby-identifier">method</span>, <span class="ruby-identifier">c</span>[<span class="ruby-value">1</span>], <span class="ruby-value">:label</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c</span>[<span class="ruby-value">0</span>],
+49:           <span class="ruby-value">:label_for</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-identifier">object_name</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">c</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">'_'</span>) }
+50:       <span class="ruby-keyword kw">end</span>
+51:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="submit-method" class="method-detail ">
+				<a name="method-i-submit"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">submit</span><span
+						class="method-args">(value = nil, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Submit button with smart default text (if <tt>value</tt> is nil uses
+&#8220;Create&#8221; for new record or &#8220;Update&#8221; for old
+record).
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="submit-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 157</span>
+157:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">submit</span>(<span class="ruby-identifier">value</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">options</span> = {})
+158:       <span class="ruby-identifier">value</span> = (<span class="ruby-ivar">@object</span>.<span class="ruby-identifier">new_record?</span><span class="ruby-operator">?</span> <span class="ruby-value str">&quot;Create&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;Update&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+159:       <span class="ruby-identifier">build_shell</span>(<span class="ruby-identifier">value</span>, <span class="ruby-identifier">options</span>, <span class="ruby-value str">'submit_button'</span>) { <span class="ruby-keyword kw">super</span> }
+160:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="year-select-method" class="method-detail ">
+				<a name="method-i-year_select"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">year_select</span><span
+						class="method-args">(method, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Year select field. Takes options <tt>:start_year</tt> and
+<tt>:end_year</tt>, and <tt>:step</tt>.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="year-select-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 135</span>
+135:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">year_select</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">options</span> = {})
+136:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:first</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:start_year</span>] <span class="ruby-operator">||</span> <span class="ruby-value">1801</span>
+137:       <span class="ruby-identifier">options</span>[<span class="ruby-value">:last</span>]  = <span class="ruby-identifier">options</span>[<span class="ruby-value">:end_year</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>.<span class="ruby-identifier">year</span>
+138:       <span class="ruby-identifier">integer_select</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">options</span>)
+139:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="private-instance-method-details" class="method-section section">
+			<h3 class="section-header">Private Instance Methods</h3>
+
+		
+			<div id="check-box-field-template-method" class="method-detail ">
+				<a name="method-i-check_box_field_template"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">check_box_field_template</span><span
+						class="method-args">(l = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Render check box field template.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="check-box-field-template-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 255</span>
+255:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">check_box_field_template</span>(<span class="ruby-identifier">l</span> = {})
+256:       <span class="ruby-value str">      &lt;div data-role=&quot;fieldcontain&quot; id=&quot;#{l[:div_id]}&quot; class=&quot;field&quot;&gt;              #{l[:element]} #{l[:label]} #{l[:decoration]}&lt;br /&gt;              #{&quot;&lt;p class=\&quot;field_description\&quot;&gt;#{l[:description]}&lt;/p&gt;&quot; unless l[:description].blank?}            &lt;/div&gt;</span>
+257:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="default-field-template-method" class="method-detail ">
+				<a name="method-i-default_field_template"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">default_field_template</span><span
+						class="method-args">(l = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Render default field template for all the following field methods:
+&#8220;fields_for&#8220;, &#8220;label&#8221;, &#8220;text_field&#8220;,
+&#8220;password_field&#8220;, &#8220;hidden_field&#8220;,
+&#8220;file_field&#8220;, &#8220;text_area&#8220;, 
+&#8220;search_field&#8220;, &#8220;telephone_field&#8220;,
+&#8220;phone_field&#8220;, &#8220;url_field&#8220;, 
+&#8220;email_field&#8220;, &#8220;number_field&#8220;,
+&#8220;range_field&#8220;
+</p>
+<h4>Examples</h4>
+<pre>
+  &lt;%= jq_form_for(@post) do |f| %&gt;
+    &lt;%= f.text_field :name %&gt;
+  &lt;% end %&gt;
+
+  #  =&gt;(Ommiting form_for results)
+  &lt;div data-role=&quot;fieldcontain&quot; id=&quot;post_name_field&quot; class=&quot;field&quot;&gt; 
+      label for=&quot;post_name&quot;&gt;Name&lt;/label&gt;&lt;br /&gt; 
+    &lt;input id=&quot;post_name&quot; name=&quot;post[name]&quot; size=&quot;30&quot; type=&quot;text&quot; /&gt; 
+    &lt;/div&gt;
+ 
+</pre>
+<p>
+You can pass a few other options for your input fields.
+</p>
+<h4>Examples</h4>
+<pre>
+  &lt;%= f.text_field :name, :description =&gt; &quot;Fill in your name&quot;, :required =&gt; true,
+      :label =&gt; &quot;Your Name&quot;, :decoration =&gt; 'basically a field' %&gt;
+  # =&gt; &lt;div data-role=&quot;fieldcontain&quot; id=&quot;post_name_field&quot; class=&quot;field&quot;&gt; 
+      label for=&quot;post_name&quot;&gt;Your Name&lt;span class=&quot;required&quot;&gt;*&lt;/span&gt;&lt;/label&gt;&lt;br /&gt; 
+    &lt;input id=&quot;post_name&quot; name=&quot;post[name]&quot; size=&quot;30&quot; type=&quot;text&quot; /&gt;basically a field
+    &lt;/div&gt;</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="default-field-template-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 243</span>
+243:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_field_template</span>(<span class="ruby-identifier">l</span> = {})
+244:       <span class="ruby-value str">      &lt;div data-role=&quot;fieldcontain&quot; id=&quot;#{l[:div_id]}&quot; class=&quot;field&quot;&gt;              #{l[:label]}&lt;br /&gt;        #{l[:element]}#{l[:decoration]}        #{&quot;&lt;p class=\&quot;field_description\&quot;&gt;#{l[:description]}&lt;/p&gt;&quot; unless l[:description].blank?}            &lt;/div&gt;</span>
+245:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="habtm-check-boxes-field-template-method" class="method-detail ">
+				<a name="method-i-habtm_check_boxes_field_template"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">habtm_check_boxes_field_template</span><span
+						class="method-args">(l = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Render a group of HABTM check boxes.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="habtm-check-boxes-field-template-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 282</span>
+282:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">habtm_check_boxes_field_template</span>(<span class="ruby-identifier">l</span> = {})
+283:       <span class="ruby-value str">      &lt;div data-role=&quot;fieldcontain&quot; id=&quot;#{l[:div_id]}&quot; class=&quot;field&quot;&gt;              #{l[:label]}&lt;br /&gt;        &lt;div class=&quot;habtm_check_boxes&quot;&gt;#{l[:element]}&lt;/div&gt;#{l[:decoration]}        #{&quot;&lt;p class=\&quot;field_description\&quot;&gt;#{l[:description]}&lt;/p&gt;&quot; unless l[:description].blank?}            &lt;/div&gt;</span>
+284:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="radio-button-choice-template-method" class="method-detail ">
+				<a name="method-i-radio_button_choice_template"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">radio_button_choice_template</span><span
+						class="method-args">(l = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Render single radio button. Note that this is the only field template
+without an enclosing <tt>&lt;div class=&quot;field&quot;&gt;</tt> because
+it is intended for use only within the radio_buttons_template (plural).
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="radio-button-choice-template-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 268</span>
+268:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">radio_button_choice_template</span>(<span class="ruby-identifier">l</span> = {})
+269:       <span class="ruby-value str">      #{l[:element]} #{l[:label]}</span>
+270:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="radio-buttons-field-template-method" class="method-detail ">
+				<a name="method-i-radio_buttons_field_template"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">radio_buttons_field_template</span><span
+						class="method-args">(l = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Render a group of radio buttons.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="radio-buttons-field-template-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 276</span>
+276:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">radio_buttons_field_template</span>(<span class="ruby-identifier">l</span> = {})
+277:       <span class="ruby-identifier">default_field_template</span>(<span class="ruby-identifier">l</span>)
+278:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="submit-button-template-method" class="method-detail ">
+				<a name="method-i-submit_button_template"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">submit_button_template</span><span
+						class="method-args">(l = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+Render submit button template.
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="submit-button-template-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/form_builder.rb, line 294</span>
+294:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">submit_button_template</span>(<span class="ruby-identifier">l</span> = {})
+295:       <span class="ruby-value str">      &lt;div class=&quot;button&quot;&gt;#{l[:element]}&lt;/div&gt;</span>
+296:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

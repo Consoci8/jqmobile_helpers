@@ -5,6 +5,8 @@ module JqmobileHelpers
         require 'jqmobile_helpers/list_views_helper'
         require 'jqmobile_helpers/toolbars_helper'
         require 'jqmobile_helpers/buttons_helper'
+        require 'jqmobile_helpers/action_view_extensions/form_helper'
+        require 'jqmobile_helpers/form_builder'
         
         include JqmobileHelpers::ListViewsHelper
         include JqmobileHelpers::ToolbarsHelper
@@ -13,8 +15,8 @@ module JqmobileHelpers
     end
     
     config.before_initialize do
-      require 'jqmobile_helpers/form_builder'
-      config.action_view.default_form_builder = JqmobileHelper::FormBuilder
+      # To set custom FormBuilder as default
+      #config.action_view.default_form_builder = JqmobileHelper::FormBuilder
     end
     
   end  

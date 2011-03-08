@@ -68,9 +68,15 @@
 					
 					<li><a href="#method-i-html_attributes_options">#html_attributes_options</a></li>
 					
+					<li><a href="#method-i-html_li_attributes_options">#html_li_attributes_options</a></li>
+					
 					<li><a href="#method-i-icon_list">#icon_list</a></li>
 					
 					<li><a href="#method-i-inset_list">#inset_list</a></li>
+					
+					<li><a href="#method-i-list_divider">#list_divider</a></li>
+					
+					<li><a href="#method-i-list_formatting">#list_formatting</a></li>
 					
 					<li><a href="#method-i-nested_list">#nested_list</a></li>
 					
@@ -122,17 +128,19 @@
 				
 					<li><a href="../JqmobileHelpers.html">JqmobileHelpers</a></li>
 				
+					<li><a href="../JqmobileHelpers/ActionViewExtensions.html">JqmobileHelpers::ActionViewExtensions</a></li>
+				
+					<li><a href="../JqmobileHelpers/ActionViewExtensions/FormHelper.html">JqmobileHelpers::ActionViewExtensions::FormHelper</a></li>
+				
 					<li><a href="../JqmobileHelpers/ButtonsHelper.html">JqmobileHelpers::ButtonsHelper</a></li>
+				
+					<li><a href="../JqmobileHelpers/FormBuilder.html">JqmobileHelpers::FormBuilder</a></li>
 				
 					<li><a href="../JqmobileHelpers/ListViewsHelper.html">JqmobileHelpers::ListViewsHelper</a></li>
 				
 					<li><a href="../JqmobileHelpers/Railtie.html">JqmobileHelpers::Railtie</a></li>
 				
 					<li><a href="../JqmobileHelpers/ToolbarsHelper.html">JqmobileHelpers::ToolbarsHelper</a></li>
-				
-					<li><a href="../JqmobileHelper.html">JqmobileHelper</a></li>
-				
-					<li><a href="../JqmobileHelper/FormBuilder.html">JqmobileHelper::FormBuilder</a></li>
 				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -384,12 +392,118 @@ elements inside
 					<div class="method-source-code"
 						id="inset-list-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/list_views_helper.rb, line 237</span>
-237:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inset_list</span>(<span class="ruby-identifier">collection</span>, <span class="ruby-identifier">options</span> = {})
-238:       <span class="ruby-identifier">html_attributes_options</span>(<span class="ruby-identifier">options</span>)
-239:       <span class="ruby-identifier">list</span> = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">&quot;li&quot;</span>, <span class="ruby-identifier">item</span>)}
-240:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:ul</span>, <span class="ruby-identifier">list</span>.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">html_safe</span>, <span class="ruby-identifier">default_options</span>)
-241:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/list_views_helper.rb, line 280</span>
+280:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">inset_list</span>(<span class="ruby-identifier">collection</span>, <span class="ruby-identifier">options</span> = {})
+281:       <span class="ruby-identifier">html_attributes_options</span>(<span class="ruby-identifier">options</span>)
+282:       <span class="ruby-identifier">list</span> = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">&quot;li&quot;</span>, <span class="ruby-identifier">item</span>)}
+283:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:ul</span>, <span class="ruby-identifier">list</span>.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">html_safe</span>, <span class="ruby-identifier">default_options</span>)
+284:     <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="list-divider-method" class="method-detail ">
+				<a name="method-i-list_divider"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">list_divider</span><span
+						class="method-args">(collection, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<h6>LIST DIVIDER ===========================================================</h6>
+<p>
+jQuery Mobile provides a very easy way to filter a list with a simple
+client-side search feature.  To make a list filterable, simply add the
+data-filter=&#8220;true&#8221; attribute to the list.  The framework will
+then append a search box above the list  and add the behavior to filter out
+list items that don&#8217;t contain the current search string as the user
+types.
+</p>
+<h4>Examples</h4>
+<pre>
+     &lt;%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}) %&gt; 
+     # =&gt; &lt;ul data-inset=&quot;false&quot; data-role=&quot;listview&quot; data-filter=&quot;true&quot;&gt;
+            &lt;li&gt;          
+              &lt;a href=&quot;/posts/1&quot;&gt;Title 1&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Title 1&lt;/p&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt; </pre>
+					
+
+					
+					<div class="method-source-code"
+						id="list-divider-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/list_views_helper.rb, line 259</span>
+259:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_divider</span>(<span class="ruby-identifier">collection</span>, <span class="ruby-identifier">options</span> = {})
+260:         <span class="ruby-identifier">html_attributes_options</span>(<span class="ruby-identifier">options</span>)
+261:         <span class="ruby-comment cmt">#html_li_attributes_options(options)</span>
+262:         <span class="ruby-identifier">list</span> = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:li</span>, <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">&quot;li&quot;</span>, <span class="ruby-identifier">item</span>), {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'list-divider'</span>})}
+263:         <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:ul</span>, <span class="ruby-identifier">list</span>.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">html_safe</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span>)
+264:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="list-formatting-method" class="method-detail ">
+				<a name="method-i-list_formatting"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">list_formatting</span><span
+						class="method-args">(collection, options = {})</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<h6>LIST FORMATTING LIST ===========================================================</h6>
+<p>
+jQuery Mobile provides a very easy way to filter a list with a simple
+client-side search feature.  To make a list filterable, simply add the
+data-filter=&#8220;true&#8221; attribute to the list.  The framework will
+then append a search box above the list  and add the behavior to filter out
+list items that don&#8217;t contain the current search string as the user
+types.
+</p>
+<h4>Examples</h4>
+<pre>
+     &lt;%= search_filter_list(@posts.map{|x| link_to(x.title, post_path(x))}) %&gt; 
+     # =&gt; &lt;ul data-inset=&quot;false&quot; data-role=&quot;listview&quot; data-filter=&quot;true&quot;&gt;
+            &lt;li&gt;          
+              &lt;a href=&quot;/posts/1&quot;&gt;Title 1&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Title 1&lt;/p&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt; </pre>
+					
+
+					
+					<div class="method-source-code"
+						id="list-formatting-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/list_views_helper.rb, line 238</span>
+238:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">list_formatting</span>(<span class="ruby-identifier">collection</span>, <span class="ruby-identifier">options</span> = {})
+239:         <span class="ruby-identifier">html_attributes_options</span>(<span class="ruby-identifier">options</span>)
+240:         <span class="ruby-comment cmt">#html_li_attributes_options(options)</span>
+241:         <span class="ruby-identifier">list</span> = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:li</span>, <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">&quot;li&quot;</span>, <span class="ruby-identifier">item</span>), {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'list-divider'</span>})}
+242:         <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:ul</span>, <span class="ruby-identifier">list</span>.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">html_safe</span>, <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span>)
+243:       <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -526,12 +640,12 @@ supported, will fall back to injecting numbers with JavaScript
 					<div class="method-source-code"
 						id="ol-inset-list-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/list_views_helper.rb, line 243</span>
-243:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ol_inset_list</span>(<span class="ruby-identifier">collection</span>, <span class="ruby-identifier">options</span> = {})
-244:       <span class="ruby-identifier">html_attributes_options</span>(<span class="ruby-identifier">options</span>)
-245:       <span class="ruby-identifier">list</span> = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">&quot;li&quot;</span>, <span class="ruby-identifier">item</span>)}
-246:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:ol</span>, <span class="ruby-identifier">list</span>.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">html_safe</span>, <span class="ruby-identifier">default_options</span>)
-247:     <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/list_views_helper.rb, line 286</span>
+286:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">ol_inset_list</span>(<span class="ruby-identifier">collection</span>, <span class="ruby-identifier">options</span> = {})
+287:       <span class="ruby-identifier">html_attributes_options</span>(<span class="ruby-identifier">options</span>)
+288:       <span class="ruby-identifier">list</span> = <span class="ruby-identifier">collection</span>.<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span> <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">&quot;li&quot;</span>, <span class="ruby-identifier">item</span>)}
+289:       <span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:ol</span>, <span class="ruby-identifier">list</span>.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">html_safe</span>, <span class="ruby-identifier">default_options</span>)
+290:     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -747,29 +861,64 @@ Default html5 data attributes for list view in jquery-mobile
 					<div class="method-source-code"
 						id="html-attributes-options-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/list_views_helper.rb, line 252</span>
-252:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">html_attributes_options</span>(<span class="ruby-identifier">options</span>)
-253:         <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
-254:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;listview&quot;</span>, <span class="ruby-value str">'data-inset'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;true&quot;</span>}
-255: 
-256:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inset'</span>)
-257:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inset'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inset'</span>]})
-258:         <span class="ruby-keyword kw">end</span>
-259: 
-260:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
-261:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
-262:         <span class="ruby-keyword kw">end</span>
-263: 
-264:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-rel'</span>)
-265:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-rel'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-rel'</span>]})
-266:         <span class="ruby-keyword kw">end</span>
-267: 
-268:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-transition'</span>)
-269:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-transition'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-transition'</span>]})
-270:         <span class="ruby-keyword kw">end</span>
-271: 
-272: 
-273:       <span class="ruby-keyword kw">end</span></pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/list_views_helper.rb, line 295</span>
+295:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">html_attributes_options</span>(<span class="ruby-identifier">options</span>)
+296:         <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+297:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;listview&quot;</span>, <span class="ruby-value str">'data-inset'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;true&quot;</span>}
+298: 
+299:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-inset'</span>)
+300:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-inset'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-inset'</span>]})
+301:         <span class="ruby-keyword kw">end</span>
+302: 
+303:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+304:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+305:         <span class="ruby-keyword kw">end</span>
+306: 
+307:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-rel'</span>)
+308:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-rel'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-rel'</span>]})
+309:         <span class="ruby-keyword kw">end</span>
+310: 
+311:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-transition'</span>)
+312:           <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-transition'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-transition'</span>]})
+313:         <span class="ruby-keyword kw">end</span>
+314:   
+315:       <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="html-li-attributes-options-method" class="method-detail ">
+				<a name="method-i-html_li_attributes_options"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">html_li_attributes_options</span><span
+						class="method-args">(options)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="html-li-attributes-options-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/list_views_helper.rb, line 317</span>
+317:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">html_li_attributes_options</span>(<span class="ruby-identifier">options</span>)
+318:         <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+319:         <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">li_options</span> = {<span class="ruby-value str">'data-role'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">&quot;list-divider&quot;</span>}
+320: 
+321:       <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
