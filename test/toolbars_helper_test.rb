@@ -4,7 +4,7 @@ class ToolbarsHelperTest < ActiveSupport::TestCase
   include JqmobileHelpers::ToolbarsHelper
   
   def request
-    request = Rack::Request.new(Rack::MockRequest.env_for("http://localhost:3000/posts"))
+    Rack::Request.new(Rack::MockRequest.env_for("http://localhost:3000/posts"))
   end
 
   test "header toolbar title" do
@@ -18,9 +18,8 @@ class ToolbarsHelperTest < ActiveSupport::TestCase
   end
 
   test "navbar bar container with navbar link" do
-    
     navbar = navbar_bar([navbar_link('list view','http://localhost:3000/posts',{'data-theme' => 'c','data-icon' => 'gear'})])
-    assert_equal "<div data-role=\"navbar\"><ul><li><a class=\"ui-btn-active\" data-icon=\"gear\" data-theme=\"c\" href=\"http://localhost:3000/posts\">list view</a></li></ul></div>", navbar
+    assert_equal "<div data-role=\"navbar\"><ul><li><a data-icon=\"gear\" data-theme=\"c\" href=\"http://localhost:3000/posts\">list view</a></li></ul></div>", navbar
   end
 
 end
