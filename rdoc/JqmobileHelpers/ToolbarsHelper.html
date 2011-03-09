@@ -364,43 +364,47 @@ to set active navbar link when user click
 
  if link_path == page_url   (compare the link pass by user in navbar_link() with current active page path
    content_tag('a',name, {'href' =&gt; &quot;#{link}&quot;, 'class' =&gt; 'ui-btn-active'}.merge(default_options))
-   ***** (if true, will append class=ui-btn-active to the navbar link))</pre>
+   ***** (if true, will append class=ui-btn-active to the navbar link))
+ Bug for setting active link for navbar :
+  =&gt; remove this part:
+   c.delegate(&quot;a&quot;,&quot;click&quot;,function(){f.removeClass(&quot;ui-btn-active&quot;);a(this).addClass(&quot;ui-btn-active&quot;)})
+  =&gt; from jquery.mobile-1.0a3.min.js line 120</pre>
 					
 
 					
 					<div class="method-source-code"
 						id="navbar-link-source">
 <pre>
-     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/toolbars_helper.rb, line 103</span>
-103:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">navbar_link</span>(<span class="ruby-identifier">name</span>,<span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> ={})
-104:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
-105:       <span class="ruby-identifier">default_options</span> = {}
-106: 
-107:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-icon'</span>)
-108:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-icon'</span>]})
-109:       <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/jqmobile_helpers/toolbars_helper.rb, line 107</span>
+107:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">navbar_link</span>(<span class="ruby-identifier">name</span>,<span class="ruby-identifier">link</span>, <span class="ruby-identifier">options</span> ={})
+108:       <span class="ruby-identifier">html_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">stringify_keys!</span>
+109:       <span class="ruby-identifier">default_options</span> = {}
 110: 
-111:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
-112:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
+111:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-icon'</span>)
+112:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-icon'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-icon'</span>]})
 113:       <span class="ruby-keyword kw">end</span>
 114: 
-115:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
-116:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+115:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-iconpos'</span>)
+116:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-iconpos'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-iconpos'</span>]})
 117:       <span class="ruby-keyword kw">end</span>
 118: 
-119: 
-120:       <span class="ruby-identifier">page</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">fullpath</span>
-121:       <span class="ruby-identifier">page_url</span> = <span class="ruby-identifier">page</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/[0-9]/</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">'/'</span>,<span class="ruby-value str">&quot;&quot;</span>)
-122:       <span class="ruby-identifier">link_path</span> = <span class="ruby-identifier">link</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">'/'</span>,<span class="ruby-value str">&quot;&quot;</span>)
+119:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">html_options</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-value str">'data-theme'</span>)
+120:         <span class="ruby-identifier">default_options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value str">'data-theme'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">html_options</span>[<span class="ruby-value str">'data-theme'</span>]})
+121:       <span class="ruby-keyword kw">end</span>
+122: 
 123: 
-124:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">link_path</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">page_url</span>
-125:         <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'a'</span>,<span class="ruby-identifier">name</span>, {<span class="ruby-value str">'href'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{link}&quot;</span>, <span class="ruby-value str">'class'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'ui-btn-active'</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
-126:       <span class="ruby-keyword kw">else</span>
-127:         <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'a'</span>,<span class="ruby-identifier">name</span>, {<span class="ruby-value str">'href'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{link}&quot;</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
-128:       <span class="ruby-keyword kw">end</span>
-129: 
-130:       
-131:     <span class="ruby-keyword kw">end</span></pre>
+124:       <span class="ruby-identifier">page</span> = <span class="ruby-identifier">request</span>.<span class="ruby-identifier">fullpath</span>
+125:       <span class="ruby-identifier">page_url</span> = <span class="ruby-identifier">page</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/[0-9]/</span>)[<span class="ruby-value">0</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">'/'</span>,<span class="ruby-value str">&quot;&quot;</span>)
+126:       <span class="ruby-identifier">link_path</span> = <span class="ruby-identifier">link</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">'/'</span>,<span class="ruby-value str">&quot;&quot;</span>)
+127: 
+128:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">link_path</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">page_url</span>
+129:         <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'a'</span>,<span class="ruby-identifier">name</span>, {<span class="ruby-value str">'href'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{link}&quot;</span>, <span class="ruby-value str">'class'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'ui-btn-active'</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+130:       <span class="ruby-keyword kw">else</span>
+131:         <span class="ruby-identifier">content_tag</span>(<span class="ruby-value str">'a'</span>,<span class="ruby-identifier">name</span>, {<span class="ruby-value str">'href'</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{link}&quot;</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">default_options</span>))
+132:       <span class="ruby-keyword kw">end</span>
+133: 
+134:       
+135:     <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

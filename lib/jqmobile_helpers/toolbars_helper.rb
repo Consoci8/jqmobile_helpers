@@ -99,6 +99,10 @@ module JqmobileHelpers
     #  if link_path == page_url   (compare the link pass by user in navbar_link() with current active page path
     #    content_tag('a',name, {'href' => "#{link}", 'class' => 'ui-btn-active'}.merge(default_options))
     #    ***** (if true, will append class=ui-btn-active to the navbar link))
+    #  Bug for setting active link for navbar :
+    #   => remove this part:
+    #    c.delegate("a","click",function(){f.removeClass("ui-btn-active");a(this).addClass("ui-btn-active")})
+    #   => from jquery.mobile-1.0a3.min.js line 120
 
     def navbar_link(name,link, options ={})
       html_options = options.stringify_keys!
