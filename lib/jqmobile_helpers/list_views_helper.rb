@@ -264,12 +264,7 @@ module JqmobileHelpers
       # but you can specify a theme for dividers by adding the data-groupingtheme attribute and specifying a theme swatch letter.
       #
       # ==== Examples
-      #      <% list_divider @posts.group_by.each do |post| %>
-      #	        <%= post.title[0] %>
-      #	        <% post.each do |p| %>
-      #		        <%= p.title %>
-      #	        <% end %>
-      #      <% end %>
+      #      <%= list_divider(@posts.group_by{|x| x.title[0]}.sort, "title")%>
       #      # => <ul data-role="listview">
 			#             <li data-role="list-divider">A</li>
 			#               <li><a href="index.html">Adam Kinkaid</a></li>
@@ -278,7 +273,6 @@ module JqmobileHelpers
 			#             <li data-role="list-divider">B</li>
 			#               <li><a href="index.html">Bob Cabot</a></li>
 			#           </ul>
-
       def list_divider(collection, content, options = {})
         html_attributes_options(options)
         link = controller.controller_name
