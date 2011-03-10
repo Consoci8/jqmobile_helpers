@@ -279,22 +279,19 @@ module JqmobileHelpers
 			#               <li><a href="index.html">Bob Cabot</a></li>
 			#           </ul>
 
-
-      #def list_divider(collection, options = {})
-      #  html_attributes_options(options)
-      #  #html_li_attributes_options(options)
-      #  list = collection.group_by do |alphabet|
-      #          content_tag("li", alphabet, {'data-role' => 'list-divider'}) << content_tag("li", alphabet)
-      #        end
-      #  #list = collection.group_by{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << content_tag("li", collection.map{|x| x})}
-      #  content_tag(:ul, list, self.default_options)
-      #end
-      def list_divider(collection, collection1, options = {})
+      def list_divider(collection, content, options = {})
         html_attributes_options(options)
-        #html_li_attributes_options(options)
-        list = collection.map{|item| content_tag(:li, item, {'data-role' => 'list-divider'}) << content_tag("li", collection1.map{|x| x})}
-        content_tag(:ul, list.join.html_safe, self.default_options)
-      end
+        link = controller.controller_name
+        list = collection.collect do |header, item|
+          tags = [content_tag("li", header, {'data-role' => 'list-divider'})]
+            tags += item.collect do |i|
+              content_tag("li", "<a href=\"#{link}/#{i.id}\">#{i.send(content.to_sym)}</a>".html_safe)
+            end
+            tags
+          end
+          content_tag(:ul, list.join.html_safe, self.default_options)
+        end
+          
 
     # ====================================== INSET LIST ===========================================================
     #
