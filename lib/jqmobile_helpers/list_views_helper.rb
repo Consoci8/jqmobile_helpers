@@ -103,25 +103,18 @@ module JqmobileHelpers
     end
 
 
-    # ====================================== SPLIT-BUTTON LIST ===========================================================
-    # In cases where there is more than one possible action per list item,
-    # a split button can be used to offer two independently clickable items -- the list item and a small arrow icon in the far right
-    # The framework will add a vertical divider line and sets the title attribute of the link to the text the link for accessibility.
+    # ====================================== COUNT-BUBBLE LIST ===========================================================
+    # The framework includes text formatting conventions for common list patterns like header/descriptions, 
+    # secondary information, counts through HTML semantic markup.
+    #To add a count indicator to the right of the list item, wrap the number in an element with a class of ui-li-count
     #
-    #
-    # ==== Options
-    #   # => 'data-inset' => 'true' (Default data-inset is set to true)
-    #   # => 'data-theme' => 'c' (Default data-theme is set to c)
-    #
-    # ==== Examples
-    #   <%= split_button_list "Split Button List", post_path(@posts) %>
-    #   # => <ul data-role="listview" data-split-icon="gear" data-split-theme="d"><li><a data-rel="dialog" data-transition="slideup" href="/posts/1">Split Button List</a></li></ul>
-    #
-    # ======for collections of data that have more than one.
-    #  <% @posts.each do |post|
-    #  <%= split_button_list(post.name, post_path(post)) %>
-    #  <% end %>
-    #
+    # ====== Examples
+    #      <%= count_bubble(@posts.map do |x| [x.title, link_to(x.title, post_path(x))] end)%>
+    #      # => <ul data-inset="true" data-role="listview">
+    #              <li><a href="/posts/1">First Title</a>
+    #              <span class=ui-li-count>2</span>
+    #              </li>
+    #           </ul>
     def count_bubble(collection, options = {})
       html_attributes_options(options)
       list = collection.map do |item|
@@ -137,6 +130,7 @@ module JqmobileHelpers
       content_tag(:ul, list.join.html_safe, self.default_options)
     end
 
+    # ====================================== THUMBNAIL LIST ===========================================================
     # To add thumbnails to the left of a list item, the first element in your collection must have a image_tag.
     # The framework will scale the image to 80 pixels square.
     #
