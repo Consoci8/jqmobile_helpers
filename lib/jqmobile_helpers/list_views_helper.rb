@@ -224,32 +224,45 @@ module JqmobileHelpers
       # ====================================== LIST FORMATTING LIST ===========================================================
       #
       # ==== Examples
-      #       <ul data-role="listview">
-      #         <% @posts.each do |post| %>
-      #           <%= list_formatting(post.created_at, post.name, post.title, post.content) %>
-      #         <% end %>
-      #       </ul>
+      #     <%= list_formatting(@posts.group_by{|s| s.created_at.strftime("%A, %B %d, %Y")}.sort, 'name', 'title', 'content') %>
+      #      # 'name', 'title' and 'content' is a database column name
+      #      # Arguments for column_one, column_two and column_three should be a database column name
       #      # => <ul data-role="listview">
       #            <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
 			#            <li>
-			#            	 <h3><a href="index.html">Stephen Weber</a></h3>
+			#            	 <h3><a href="/posts/1">Stephen Weber</a></h3>
 			#            	 <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
 			#            	 <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.</p>
 			#            	 <p class="ui-li-aside"><strong>6:24</strong>PM</p>
 			#            </li>
 			#            <li>
-			#            	 <h3><a href="index.html">jQuery Team</a></h3>
+			#            	 <h3><a href="/posts/2">jQuery Team</a></h3>
 			#            	 <p><strong>Boston Conference Planning</strong></p>
 			#            	 <p>In preparation for the upcoming conference in Boston, we need to start gathering a list of sponsors and speakers.</p>
 			#            	 <p class="ui-li-aside"><strong>9:18</strong>AM</p>
 			#            </li>
 			#           </ul>
       #
-      def list_formatting(created, name, title, content, options = {})
+      def list_formatting(collection, column_one, column_two, column_three, options = {})
+
         html_attributes_options(options)
         li_default_options = {'data-role'=>"list-divider"}
-        content_tag("li", created, li_default_options) <<
-        content_tag("li", "<h3>#{name}</h3><p><strong>#{title}</strong></p><p>#{content}</p>".html_safe)
+
+        link = controller.controller_name
+
+        list = collection.collect do |created, post|
+         tags = [content_tag("li", created + "<span class=\"ui-li-count\">#{post.size}</span>".html_safe, li_default_options, false)]
+           tags += post.collect do |p|
+             content_tag("li", "<h3><a href=\"#{link}/#{p.id}\">#{p.send(column_one.to_sym)}</a></h3>
+                         <p><strong>#{p.send(column_two.to_sym)}</strong></p>
+                         <p>#{p.send(column_three.to_sym)}</p>
+                         <p class=\"ui-li-aside\"><strong>#{p.created_at.strftime("%I:%M%p")}</strong></p>".html_safe)
+           end
+
+            tags
+         end
+
+        content_tag(:ul, list.join.html_safe, default_options.update('data-inset' => 'false'))
       end
 
 
