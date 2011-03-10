@@ -60,6 +60,11 @@ class ListViewHelperTest < ActiveSupport::TestCase
     jq_ol_inset_list = ol_inset_list(["car","van","truck"])
     assert_equal "<ol data-inset=\"true\" data-role=\"listview\"><li>car</li><li>van</li><li>truck</li></ol>", jq_ol_inset_list
   end
-
+  
+  #test "list divider helper" do
+  #  collection = [{:title => ["A", "B", "C"], :controller => 'posts'}]
+  #  jq_list_divider = list_divider(collection.group_by{|x| x[:title]}.sort, [:title])
+  #  assert_equal "<ul data-role=\"listview\"><li data-role=\"list-divider\"><li><a href=\"posts/1\">A</a><li><a href=\"posts/2\">B</a><li><a href=\"posts/3\">C</a></li></ul>", jq_list_divider
+  #end
 end
 

@@ -28,7 +28,8 @@ module JqmobileHelpers
     #
     # === Examples
     #
-    #  => <a href="../../" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+    #  => <a href="../../" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">
+    #  Home</a>
     
     def header_toolbar_link(link_name,path,options = {})
       html_options = options.stringify_keys!
@@ -51,7 +52,8 @@ module JqmobileHelpers
 
     # navigation bar container
     #
-    #  A navbar is coded as an unordered list of links wrapped in a container element that has the data-role="navbar" attribute
+    #  A navbar is coded as an unordered list of links wrapped in a container element that has
+    #  the data-role="navbar" attribute
     #  To set one of links to the active (selected) state, add class="ui-btn-active" to the anchor
     #  The navbar maxes out with 5 items, each 1/5 the width of the browser window
     #  Navbar can be in the header/footer.just add the navbar container inside header/footer container
@@ -68,7 +70,9 @@ module JqmobileHelpers
     #	</div><!-- /navbar -->
     # Usage :
     #  navbar_link(collection)  ** this method is to create the link inside the navbar container
-    #  <%= navbar_bar([navbar_link('saya',root_path,{'data-icon' => 'gear'}),navbar_link('saya',root_path,{'data-icon' => 'gear'}),navbar_link('dia',toolbars_path,{'data-icon' => 'home'}), navbar_link('kami',toolbars_path,{'data-icon' => 'plus'})]) %>
+    #  <%= navbar_bar([navbar_link('saya',root_path,{'data-icon' => 'gear'}),navbar_link('saya',root_path,
+    #  {'data-icon' => 'gear'}),navbar_link('dia',toolbars_path,{'data-icon' => 'home'}),
+    #  navbar_link('kami',toolbars_path,{'data-icon' => 'plus'})]) %>
 
 
     def navbar_bar(collection)
@@ -85,7 +89,20 @@ module JqmobileHelpers
     #  # => <a href="a.html" class="ui-btn-active" 'data-icon'="gear">One</a>
     # Usage :
     #  => navbar_link('saya',root_path,{'data-icon' => 'gear'})
-
+    #
+    # to set active navbar link when user click
+    #  => page = request.fullpath **** (will get the current active page fullpath : localhost/posts will generate /posts
+    #  => page_url = page.split(/[0-9]/)[0].gsub('/',"")
+    #  **** (will ignore the number in the url and remove '/' from the path : localhots/posts/1 will generate 'posts'
+    #  => link_path = link.gsub('/',"")  (will remove '/' symbol from the string : /posts will become posts
+    #
+    #  if link_path == page_url   (compare the link pass by user in navbar_link() with current active page path
+    #    content_tag('a',name, {'href' => "#{link}", 'class' => 'ui-btn-active'}.merge(default_options))
+    #    ***** (if true, will append class=ui-btn-active to the navbar link))
+    #  Bug for setting active link for navbar :
+    #   => remove this part:
+    #    c.delegate("a","click",function(){f.removeClass("ui-btn-active");a(this).addClass("ui-btn-active")})
+    #   => from jquery.mobile-1.0a3.min.js line 120
 
     def navbar_link(name,link, options ={})
       html_options = options.stringify_keys!
@@ -103,11 +120,18 @@ module JqmobileHelpers
         default_options = default_options.merge({'data-theme' => html_options['data-theme']})
       end
 
-      if html_options.has_key?('class')
-        default_options = default_options.merge({'class' => html_options['class']})
+
+      page = request.fullpath
+      page_url = page.split(/[0-9]/)[0].gsub('/',"")
+      link_path = link.gsub('/',"")
+
+      if link_path == page_url
+        content_tag('a',name, {'href' => "#{link}", 'class' => 'ui-btn-active'}.merge(default_options))
+      else
+        content_tag('a',name, {'href' => "#{link}"}.merge(default_options))
       end
 
-      content_tag('a',name, {'href' => "#{link}"}.merge(default_options))
+      
     end
 
 
