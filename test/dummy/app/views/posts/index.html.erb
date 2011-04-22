@@ -100,6 +100,11 @@
 
 <%= list_divider(@posts.group_by{|x| x.title[0]}.sort, "title")%>
 
+
+<h2>Search Filter List With Divider</h2>
+
+<%= search_filter_list_with_divider(@posts.group_by{|x| x.title[0]}.sort, "title") %>
+
 	
 
 

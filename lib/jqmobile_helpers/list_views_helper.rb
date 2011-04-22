@@ -292,6 +292,49 @@ module JqmobileHelpers
           end
           content_tag(:ul, list.join.html_safe, self.default_options)
         end
+
+      # ======================================SEARCH FILTER WITH LIST DIVIDER ===========================================================
+      # jQuery Mobile provides a very easy way to filter a list with a simple client-side search feature.
+      # To make a list filterable, simply add the data-filter="true" attribute to the list and
+      # The framework will then append a search box above the list
+      # and add the behavior to filter out list items that don't contain the current search string as the user types.
+      # List items can be turned into dividers to organize and group the list items. 
+      # This is done by adding the data-role="list-divider" to any list item. 
+      # These items are styled with the body swatch "b" by default (light gray in the default theme) 
+      # but you can specify a theme for dividers by adding the data-groupingtheme attribute and specifying a theme swatch letter.
+      #
+      # ==== Examples
+      # 
+      #      <%= list_divider(@posts.group_by{|x| x.title[0]}.sort, "title")%>
+      #      # => <ul data-filter="true" data-inset="false" data-role="listview">
+      #             <li data-role="list-divider">F</li>
+      #               <li>
+      #                 <a href="posts/1">First Title </a>
+      #               </li>
+      #               <li>
+      #                 <a href="posts/4">F title</a>
+      #               </li>
+      #             <li data-role="list-divider">G</li>
+      #               <li>
+      #                 <a href="posts/3">G. Title</a>
+      #               </li>
+      #               <li>
+      #                 <a href="posts/5">Gold Title</a>
+      #               </li>
+      #           </ul>
+      def search_filter_list_with_divider(collection, content, options = {})
+        html_attributes_options(options)
+        #list = collection.map{|item| content_tag("li", item)}
+        link = controller.controller_name
+        list = collection.collect do |header, item|
+          tags = [content_tag("li", header, {'data-role' => 'list-divider'})]
+            tags += item.collect do |i|
+              content_tag("li", "<a href=\"#{link}/#{i.id}\">#{i.send(content.to_sym)}</a>".html_safe)
+            end
+            tags
+          end
+        content_tag(:ul, list.join.html_safe, default_options.update('data-filter' => 'true', 'data-inset' => 'false'))
+      end
           
 
     # ====================================== INSET LIST ===========================================================
